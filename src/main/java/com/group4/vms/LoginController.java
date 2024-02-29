@@ -30,6 +30,11 @@ public class LoginController { // serves the login page to the user
         }
         return false;
     }
+
+    @GetMapping("/")
+    public String getLogin() {
+        return "login";
+    }
     // The following code attempts to show the user an html file when the user
     // visits an endpoint.
     // public LoginService loginService;
@@ -57,10 +62,6 @@ public class LoginController { // serves the login page to the user
 
         }
 
-        @GetMapping("/")
-        public String getLogin() {
-            return "login";
-        }
     }
 }
 

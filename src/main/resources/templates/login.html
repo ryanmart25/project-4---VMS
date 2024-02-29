@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>My Video Carousel Page</title>
 </head>
 
@@ -31,16 +30,28 @@
 </body>
 <script>
 
-    baseurl = "http://localhost:8080/verify"
+    baseurl = "http://localhost:8080/verify?"
     submitBtn = document.getElementById("submit")
-    usrField = document.getElementById("usrField")
+    usrField = document.getElementById("userField")
     pasField = document.getElementById("passwordField")
-    submitBtn.addEventListener('onClick', submit)
+
+    submitBtn.addEventListener('onClick', submit(usrField.value, pasField.value))
+
+
     function submit(username, password) {
+        //username and password are empty strings. Why???
+        console.log("What it sees: \nUsername: " + username + "\nPassword: " + password)
         //call an api endpoint that returns true/OK when
         //username and password are valid. 
-        fetch("")
+        fetch(baseurl + "username=" + username + "&" + "password=" + password)
+            .then((Response) => {
+                console.log(Response)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
+
 </script>
 
 </html>
