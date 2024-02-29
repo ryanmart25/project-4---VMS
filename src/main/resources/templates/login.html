@@ -18,13 +18,29 @@
             </ul>
         </nav>
         <main class="content">
-            <div class="carousel">
-                <ul class="carousel-items">
+            <div class="loginform">
+                <ul class="login-items">
+                    <li><input type="text" id="userField" /></li>
+                    <li><input type="password" id="passwordField" /></li>
+                    <li><button id="submit">Submit</button></li>
                 </ul>
             </div>
         </main>
     </div>
 
 </body>
+<script>
+
+    baseurl = "http://localhost:8080/verify"
+    submitBtn = document.getElementById("submit")
+    usrField = document.getElementById("usrField")
+    pasField = document.getElementById("passwordField")
+    submitBtn.addEventListener('onClick', submit)
+    function submit(username, password) {
+        //call an api endpoint that returns true/OK when
+        //username and password are valid. 
+        fetch("")
+    }
+</script>
 
 </html>
