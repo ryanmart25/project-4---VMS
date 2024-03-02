@@ -35,17 +35,24 @@
     usrField = document.getElementById("userField")
     pasField = document.getElementById("passwordField")
 
-    submitBtn.addEventListener('onClick', submit(usrField.value, pasField.value))
+    submitBtn.addEventListener('click', submit)
 
 
-    function submit(username, password) {
+    function submit() {
         //username and password are empty strings. Why???
-        console.log("What it sees: \nUsername: " + username + "\nPassword: " + password)
         //call an api endpoint that returns true/OK when
         //username and password are valid. 
-        fetch(baseurl + "username=" + username + "&" + "password=" + password)
-            .then((Response) => {
-                console.log(Response)
+
+
+        fetch(baseurl + "username=" + usrField.value + "&" + "password=" + pasField.value)
+            .then((res) => {
+                if (res.loggedIn == true) {
+                    console.log('Response was true')
+
+                }
+                else {
+                    console.log('response was false')
+                }
             })
             .catch((err) => {
                 console.log(err)

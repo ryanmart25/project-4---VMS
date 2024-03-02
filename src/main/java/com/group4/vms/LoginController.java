@@ -5,6 +5,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -60,6 +61,13 @@ public class LoginController { // serves the login page to the user
                 return new Login(counter.incrementAndGet(), false);
             }
 
+        }
+
+        @PostMapping("/adduser{username}{password}")
+        public User postNewUser(
+                @RequestParam(value = "username", defaultValue = "N/A") String username,
+                @RequestParam(value = "password", defaultValue = "N/A") String password) {
+            return new User();
         }
 
     }
