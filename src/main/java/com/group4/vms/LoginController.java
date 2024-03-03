@@ -64,7 +64,8 @@ public class LoginController { // serves the login page to the user
         }
 
         @PostMapping("/adduser{username}{password}")
-        public User postNewUser(
+        public User postNewUser( //TODO This needs to be fully fleshed out, add error correction, and feed all parameters to the constructor, 
+        //and add the new user to the database.
                 @RequestParam(value = "username", defaultValue = "N/A") String username,
                 @RequestParam(value = "password", defaultValue = "N/A") String password) {
             return new User();

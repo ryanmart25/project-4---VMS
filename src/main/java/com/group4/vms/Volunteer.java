@@ -1,5 +1,7 @@
 package com.group4.vms;
 
+import java.util.Stack;
+
 import javax.print.attribute.standard.MediaSize.NA;
 
 import org.bson.types.ObjectId;
@@ -10,7 +12,7 @@ public class Volunteer extends Person {
     // An array of events this Volunteer is signed up for?
     private ObjectId[] events; // use a stack/queue instead for fast insertion/deletion?
                                // yes, TODO change from array to stack;
-
+    
     public Volunteer(ObjectId id, String name, String pronouns) {
         super(id, name, pronouns);
     }
