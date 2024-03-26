@@ -1,1 +1,0 @@
-This is where tests for backend code should go. Take note of the .http file. I am using this in conjunction with the extension 'Rest Client' to test the API. 
