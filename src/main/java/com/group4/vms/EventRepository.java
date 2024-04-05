@@ -1,5 +1,5 @@
 package com.group4.vms;
-
-public class EventRepository {
+import org.springframework.data.mongodb.repository.*;
+public interface EventRepository extends MongoRepository<String, Event>{
 
 }

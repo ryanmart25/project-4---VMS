@@ -11,6 +11,10 @@ public class Employee extends Person {
         this.adminPrivs = true;
     }
 
+    public Employee() {
+        super();
+    }
+
     public void setAdminPrivs() {
         // should only be used to revoke admin privs from this Employee
         this.adminPrivs = false;
