@@ -1,7 +1,9 @@
-package com.group4.vms;
+package com.group4.vms.authentication;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+import com.group4.vms.authentication.LoginService;
+import com.group4.vms.authentication.LoginState;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,63 +14,36 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class LoginController { // serves the login page to the user
-    private String[] usernames = {
-            "dave",
-            "John",
-            "qwertydopop"
-    };
-    private String[] passwords = {
-            "123",
-            "abc",
-            "qwerty"
-    };
-
-    private boolean exists(String user, String[] usernames) {
-        for (int i = 0; i < usernames.length; i++) {
-            if (user.equals(usernames[i])) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     @GetMapping("/")
     public String getLogin() {
         return "login";
     }
-    // The following code attempts to show the user an html file when the user
-    // visits an endpoint.
-    // public LoginService loginService;
-    // private AtomicLong counter = new AtomicLong();
 
-    // public LoginController(LoginService loginService) {
-    // this.loginService = loginService;
-    // }
 
     @RestController
-    private class InnerLoginController {
+    private static class InnerLoginController {
         private AtomicLong counter = new AtomicLong();
-
-        @GetMapping("/verify{username}{password}")
-        public Login verifyLogin(
-                @RequestParam(value = "username", defaultValue = "N/A") String username,
+        private final LoginService service;
+        public InnerLoginController(LoginService service){
+            this.service = service;
+        }
+        @GetMapping("/api/v1/verify{username}{password}")
+        public LoginState verifyLogin(
+                @RequestParam(value = "username", defaultValue = "N/A") String email,
                 @RequestParam(value = "password", defaultValue = "password") String password) {
-            boolean bool = exists(username, usernames);
-            boolean bool2 = exists(password, passwords);
-            if (bool && bool2) {
-                return new Login(counter.incrementAndGet(), true);
-            } else {
-                return new Login(counter.incrementAndGet(), false);
-            }
+            return this.service.verifyLogin(email, password);
 
         }
 
-        @PostMapping("/adduser{username}{password}")
-        public User postNewUser( //TODO This needs to be fully fleshed out, add error correction, and feed all parameters to the constructor, 
+        @PostMapping("/api/v1/adduser{email}{password}{name}{pronouns}")
+        public LoginState postNewUser( //TODO This needs to be fully fleshed out, add error correction, and feed all parameters to the constructor,
         //and add the new user to the database.
-                @RequestParam(value = "username", defaultValue = "N/A") String username,
-                @RequestParam(value = "password", defaultValue = "N/A") String password) {
-            return new User();
+                @RequestParam(value = "email", defaultValue = "example123@gmail.com") String email,
+                @RequestParam(value = "password", defaultValue = "N/A") String password,
+                @RequestParam( value = "name", defaultValue = "JohnDoe") String name,
+                @RequestParam(value = "pronouns", defaultValue = "JohnDoe") String pronouns) {
+            return this.service.addAccount(email, password, name, pronouns);
         }
 
     }

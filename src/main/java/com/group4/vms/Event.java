@@ -23,5 +23,5 @@ public class Event {
     Date date;
     TimeDuration duration;
     @DocumentReference
-    private LinkedList<Volunteer> volunteerList;
+    private LinkedList<ObjectId> volunteerList;
 }

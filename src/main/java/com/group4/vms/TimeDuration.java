@@ -3,8 +3,9 @@ package com.group4.vms;
 import java.util.Optional;
 import java.util.TimeZone;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
-
+@Data
 @NoArgsConstructor
 public class TimeDuration { // Represents the period of time an event lasts for.
 
@@ -16,6 +17,7 @@ public class TimeDuration { // Represents the period of time an event lasts for.
     private int endminutes;
     private int endseconds;
     private Optional<String> format; // 24-hour 12-hour
+
 
     public TimeDuration(TimeZone timeZone, int starthours, int startminutes, int startseconds, int endhours,
             int endminutes, int endseconds) {

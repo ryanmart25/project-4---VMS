@@ -15,16 +15,19 @@ public class EventController {
     public EventController(EventService eventService){
         this.eventService = eventService;
     }
-    @GetMapping("/allEvents")//get every single event
+    @GetMapping("api/v1/allEvents")//get every single event
     public List<Event> getAllEvents(){
-        return this.eventService.findAll();
+        return null;
+    }
+    @GetMapping("/api/v1/otherEvents{userID}")
+    public List<Event> getOtherEvents(@RequestParam(value = "userid", defaultValue = "0000000") ObjectId id){
+        return this.eventService.getOtherEvents(id);
     }
     @GetMapping("/allEvents{userid}") //Get all Events This user is signed up for // TODO someone else do this.
     public List<Event> getUsersEvents(
             @RequestParam(value = "userid", defaultValue = "00000000") String userid
-            )
-    {
-    return this.eventService;
+            ) {
+    return null;
     }
 
 }

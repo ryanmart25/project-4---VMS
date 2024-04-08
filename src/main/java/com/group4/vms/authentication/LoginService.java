@@ -14,40 +14,41 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class LoginService {
     // fields
-    private final LoginRepository loginRepository;
+    private final LoginVolunteerRepository loginVolunteerRepository;
     private final MongoTemplate mongoTemplate;
-
-    private AtomicLong counter = new AtomicLong();
+    private final LoginEmployeeRepository loginEmployeeRepository;
+    private final AtomicLong counter = new AtomicLong();
     //constructors
-    public LoginService(LoginRepository loginRepository, MongoTemplate mongoTemplate){ //dependency injection, makes testing easier b/c you can mock up a repository instead of spinning up a real instance of mongodb
+    public LoginService(LoginVolunteerRepository loginVolunteerRepository, MongoTemplate mongoTemplate, LoginEmployeeRepository loginEmployeeRepository){ //dependency injection, makes testing easier b/c you can mock up a repository instead of spinning up a real instance of mongodb
 
-        this.loginRepository = loginRepository;
+        this.loginVolunteerRepository = loginVolunteerRepository;
         this.mongoTemplate = mongoTemplate;
+        this.loginEmployeeRepository = loginEmployeeRepository;
     }
     //methods
-    public LoginState addAccount(String email, String Password){ // TODO See if there is a better way to search the database for the Username & pAssword
+    public LoginState addAccount(String name, String email, String password, String pronouns){ // TODO See if there is a better way to search the database for the Username & pAssword
         //1. check for account
         //2. add account to database
         //log the user in
 
         Query query = new Query()
                 .addCriteria(Criteria.where("email").is(email))
-                .addCriteria(Criteria.where("password").is(Password));
+                .addCriteria(Criteria.where("password").is(password));
 
         List<Volunteer> loginInfos = findUser(query);
-        if(!loginInfos.isEmpty()){
+        if(!loginInfos.isEmpty()){ //check if the account exists
             return new LoginState(counter.incrementAndGet(), false);
             // a "false" login state indicates the account exists, and the operation cannot be performed. endpoint should return as such.
         }
-        else{
-            List<Employee> employee = findEmployee(query);
-            if(!employee.isEmpty()){
+        else{ //if the account doesn't exist...
+            List<Employee> employee = findEmployee(query); //search for the account in the list of employees.
+            if(!employee.isEmpty()){ //if the account exists...
                 return new LoginState(counter.incrementAndGet(), false);
             }
         }
         //create the account.
         //return true for successful account creation.
-        this.loginRepository.insert(new LoginInfo(new ObjectId(), email, Password));
+        this.loginVolunteerRepository.insert(new Volunteer(new ObjectId(), name, email, password, pronouns));
         return new LoginState(counter.incrementAndGet(), true);
 
     }
@@ -64,10 +65,10 @@ public class LoginService {
         if(employees.isEmpty()){
             List<Volunteer> volunteers= findUser(query); //search volunteers
             if(!volunteers.isEmpty())
-                return new LoginState(counter.incrementAndGet(), true);
+                return new LoginState(counter.incrementAndGet(), true); //good login, let the user in.
         }
         else{
-            return new LoginState(counter.incrementAndGet(), true);
+            return new LoginState(counter.incrementAndGet(), true); //good login, let the user in.
         }
         return new LoginState(counter.incrementAndGet(), false);
     }
