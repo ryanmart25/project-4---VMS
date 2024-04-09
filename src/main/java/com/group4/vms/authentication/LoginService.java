@@ -57,29 +57,24 @@ public class LoginService {
         //1. search for user
         //2. if user exists, good login
         //3. if user does not exist, bad login
-        Query query = new Query()
-                .addCriteria(Criteria.where("email").is(email))
-                .addCriteria(Criteria.where("password").is(password));
+        List<Employee> employees = this.loginEmployeeRepository.findloginInfo(email, password);
+        List<Volunteer> volunteers = this.loginVolunteerRepository.findLoginInfo(email, password);
 
-        List<Employee> employees= findEmployee(query); //search employees
-        if(employees.isEmpty()){
-            List<Volunteer> volunteers= findUser(query); //search volunteers
-            if(!volunteers.isEmpty())
-                return new LoginState(counter.incrementAndGet(), true); //good login, let the user in.
+        if(employees.isEmpty() && volunteers.isEmpty()){
+            return new LoginState(counter.incrementAndGet(), false);
         }
-        else{
-            return new LoginState(counter.incrementAndGet(), true); //good login, let the user in.
+        else {
+            return new LoginState(counter.incrementAndGet(), true);
         }
-        return new LoginState(counter.incrementAndGet(), false);
     }
 
-    //utility methods to support the service methods
-    private List<Volunteer> findUser(Query query){
-
-        return this.mongoTemplate.find(query, Volunteer.class);
-    }
-    private List<Employee> findEmployee(Query query){
-        return this.mongoTemplate.find(query, Employee.class);
-    }
+    ////utility methods to support the service methods
+    //private List<Volunteer> findUser(Query query){
+    //
+    //    return this.mongoTemplate.find(query, Volunteer.class);
+    //}
+    //private List<Employee> findEmployee(Query query){
+    //    return this.mongoTemplate.find(query, Employee.class);
+    //}
 
 }
