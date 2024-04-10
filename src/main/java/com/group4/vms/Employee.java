@@ -2,13 +2,12 @@ package com.group4.vms;
 
 import org.bson.types.ObjectId;
 
-public class Employee extends Person {
+public class Employee extends User {
 
     private boolean adminPrivs;
 
-    public Employee(ObjectId id, String name, String pronouns) {
-        super(id, name, pronouns);
-        this.adminPrivs = true;
+    public Employee(ObjectId id, String name, String pronouns, ObjectId[] events) {
+        super(id, name, pronouns, true, events);
     }
 
     public void setAdminPrivs() {
