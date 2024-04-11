@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import com.group4.vms.authentication.LoginService;
 import com.group4.vms.authentication.LoginState;
+import lombok.extern.java.Log;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +24,7 @@ public class LoginController { // serves the login page to the user
 
     @RestController
     private static class InnerLoginController {
-        private AtomicLong counter = new AtomicLong();
+        private final AtomicLong counter = new AtomicLong();
         private final LoginService service;
         public InnerLoginController(LoginService service){
             this.service = service;
@@ -32,6 +33,9 @@ public class LoginController { // serves the login page to the user
         public LoginState verifyLogin(
                 @RequestParam(value = "username", defaultValue = "N/A") String email,
                 @RequestParam(value = "password", defaultValue = "password") String password) {
+            if(email.length() == 0 || password.length() == 0){
+                return new LoginState(counter.incrementAndGet(), false);
+            }
             return this.service.verifyLogin(email, password);
 
         }

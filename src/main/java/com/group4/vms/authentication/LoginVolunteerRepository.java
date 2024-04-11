@@ -11,11 +11,12 @@ import java.util.List;
 @Repository
 public interface LoginVolunteerRepository extends MongoRepository<Volunteer, ObjectId> {
 
-    @Query("{ " +
-            "'firstname' : ?0 , " +
-            "'lastname' , ?1" +
-            "}")
-    public List<Volunteer> findByName(String firstname, String lastname);
+    //@Query("{" +
+    //        "$and: [" +
+    //        "{'firstname': ?0} , " +
+    //        "{'password' : ?1}" +
+    //        "]}")
+    //public List<Volunteer> findByName(String firstname, String lastname);
 
     @Query("{" +
             "$and: [ " +
@@ -23,5 +24,5 @@ public interface LoginVolunteerRepository extends MongoRepository<Volunteer, Obj
                 "{ 'password' : ?1 }" +
             "  ]" + /* actual query, ANDS the two expressions*/
             " }")
-    public List<Volunteer> findLoginInfo(String email, String password);
+    public List<Volunteer> findByLoginInfo(String email, String password);
 }

@@ -9,15 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@NoArgsConstructor
 @AllArgsConstructor
 public class EmailController {
     @GetMapping
     public List<Message> getAllMessagesByUserID(){
-
+    return null;
     }
     @PostMapping("/api/v1/postmessage{sender}{receipient}")
     public boolean postMessage(){
-
+        return false;
     }
 }

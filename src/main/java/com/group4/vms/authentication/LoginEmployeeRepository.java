@@ -12,7 +12,11 @@ import java.util.List;
 public interface LoginEmployeeRepository extends MongoRepository<Employee, ObjectId> {
 
     //In-operational. MongoDB has no document with fields "firstname" , "lastname"
-    @Query("{ 'firstname':?0, 'lastname' : ?1 }")
+    @Query("{" +
+            "$and: [" +
+            "{'firstname': ?0} , " +
+            "{'password' : ?1}" +
+            "]}")
     public List<Employee> findByName(String firstname, String lastname);
     //queries database, looking for employees with the same first name and lastname.
 
