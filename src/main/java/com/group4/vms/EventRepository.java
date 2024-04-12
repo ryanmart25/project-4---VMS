@@ -1,10 +1,10 @@
 package com.group4.vms;
-import com.mongodb.client.FindIterable;
-import org.bson.types.ObjectId;
-import org.springframework.data.mongodb.repository.*;
-import com.mongodb.client.MongoCollection.*;
-import java.util.List;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
 public interface EventRepository extends MongoRepository<Event, ObjectId>{
 
 }

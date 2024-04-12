@@ -1,7 +1,9 @@
 package com.group4.vms;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "employees")
 public class Employee extends Person {
 
     private boolean adminPrivs;

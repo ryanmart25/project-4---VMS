@@ -17,7 +17,7 @@ public interface LoginEmployeeRepository extends MongoRepository<Employee, Objec
             "{'firstname': ?0} , " +
             "{'password' : ?1}" +
             "]}")
-    public List<Employee> findByName(String firstname, String lastname);
+    List<Employee> findByName(String firstname, String lastname);
     //queries database, looking for employees with the same first name and lastname.
 
     @Query("{" +
@@ -26,7 +26,7 @@ public interface LoginEmployeeRepository extends MongoRepository<Employee, Objec
             "{ 'password' : ?1 }" +
             "  ]" + /* actual query, ANDS the two expressions*/
             " }")
-    public List<Employee> findloginInfo(String email, String password);
+     List<Employee> findloginInfo(String email, String password);
     //queries database, looking for employees with the same eail and password as the ones provided.
 
 

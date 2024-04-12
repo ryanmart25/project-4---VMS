@@ -3,7 +3,6 @@ package com.group4.vms.authentication;
 
 import com.group4.vms.Employee;
 import com.group4.vms.Volunteer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,9 +10,8 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class LoginService {
     // fields
-    @Autowired
+
     private final LoginEmployeeRepository loginEmployeeRepository;
-    @Autowired
     private final LoginVolunteerRepository loginVolunteerRepository;
    // private final MongoTemplate mongoTemplate;
 

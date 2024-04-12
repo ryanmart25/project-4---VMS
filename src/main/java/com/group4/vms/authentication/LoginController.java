@@ -1,21 +1,18 @@
 package com.group4.vms.authentication;
 
-import java.util.concurrent.atomic.AtomicLong;
-
-import com.group4.vms.authentication.LoginService;
-import com.group4.vms.authentication.LoginState;
-import lombok.extern.java.Log;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 @Controller
 public class LoginController { // serves the login page to the user
-
+    //fields
+    //constructors
+    //methods
     @GetMapping("/")
     public String getLogin() {
         return "login";
@@ -24,11 +21,15 @@ public class LoginController { // serves the login page to the user
 
     @RestController
     private static class InnerLoginController {
+        //fields
         private final AtomicLong counter = new AtomicLong();
         private final LoginService service;
+        //constructors
         public InnerLoginController(LoginService service){
             this.service = service;
         }
+
+        //methods
         @GetMapping("/api/v1/verify{username}{password}")
         public LoginState verifyLogin(
                 @RequestParam(value = "username", defaultValue = "N/A") String email,
@@ -41,7 +42,7 @@ public class LoginController { // serves the login page to the user
         }
 
         @PostMapping("/api/v1/adduser{email}{password}{name}{pronouns}")
-        public LoginState postNewUser( //TODO This needs to be fully fleshed out, add error correction, and feed all parameters to the constructor,
+        public LoginState postNewUser(
         //and add the new user to the database.
                 @RequestParam(value = "email", defaultValue = "example123@gmail.com") String email,
                 @RequestParam(value = "password", defaultValue = "N/A") String password,
