@@ -1,5 +1,8 @@
 package com.group4.vms.authentication;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,13 +34,18 @@ public class LoginController { // serves the login page to the user
 
         //methods
         @GetMapping("/api/v1/verify{username}{password}")
-        public LoginState verifyLogin(
+        public ResponseEntity<LoginState> verifyLogin(
+
+
                 @RequestParam(value = "username", defaultValue = "N/A") String email,
                 @RequestParam(value = "password", defaultValue = "password") String password) {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setAccessControlAllowOrigin("http://localhost:63342");
             if(email.length() == 0 || password.length() == 0){
-                return new LoginState(counter.incrementAndGet(), false);
+
+            return new ResponseEntity<>(new LoginState(counter.incrementAndGet(), false),headers, HttpStatus.NO_CONTENT);
             }
-            return this.service.verifyLogin(email, password);
+            return new ResponseEntity<>(this.service.verifyLogin(email, password),headers, HttpStatus.FOUND);
 
         }
 

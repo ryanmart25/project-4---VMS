@@ -3,6 +3,8 @@ package com.group4.vms.authentication;
 
 import com.group4.vms.Employee;
 import com.group4.vms.Volunteer;
+import lombok.extern.java.Log;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,17 +13,19 @@ import java.util.concurrent.atomic.AtomicLong;
 public class LoginService {
     // fields
 
-    private final LoginEmployeeRepository loginEmployeeRepository;
-    private final LoginVolunteerRepository loginVolunteerRepository;
+    @Autowired
+    private final EmployeeRepository employeeRepository;
+    @Autowired
+    private final VolunteerRepository volunteerRepository;
    // private final MongoTemplate mongoTemplate;
 
     private final AtomicLong counter = new AtomicLong();
     //constructors
-    public LoginService(LoginVolunteerRepository loginVolunteerRepository, LoginEmployeeRepository loginEmployeeRepository){ //dependency injection, makes testing easier b/c you can mock up a repository instead of spinning up a real instance of mongodb
+   public LoginService(VolunteerRepository loginVolunteerRepository, EmployeeRepository employeeRepository){ //dependency injection, makes testing easier b/c you can mock up a repository instead of spinning up a real instance of mongodb
 
-        this.loginVolunteerRepository = loginVolunteerRepository;
+        this.volunteerRepository = loginVolunteerRepository;
         //this.mongoTemplate = mongoTemplate;
-        this.loginEmployeeRepository = loginEmployeeRepository;
+        this.employeeRepository = employeeRepository;
     }
     //methods
     public LoginState addAccount(String name, String email, String password, String pronouns){ // TODO See if there is a better way to search the database for the Username & pAssword
@@ -41,8 +45,8 @@ public class LoginService {
             //1. search for user
             //2. if user exists, good login
             //3. if user does not exist, bad login
-            List<Employee> employees = this.loginEmployeeRepository.findloginInfo(email, password);
-            List<Volunteer> volunteers = this.loginVolunteerRepository.findByLoginInfo(email, password);
+            List<Employee> employees = this.employeeRepository.getLoginInfo(email, password);
+            List<Volunteer> volunteers = this.volunteerRepository.getLoginInfo(email, password);
 
             if(employees.isEmpty() && volunteers.isEmpty()){
                 return new LoginState(counter.incrementAndGet(), false);
@@ -52,7 +56,7 @@ public class LoginService {
             }
         }
         else{ //email provided does not match a general email string format. send bad login.
-            return new LoginState(counter.incrementAndGet(), false);
+            return new LoginState(counter.incrementAndGet(), true);
         }
 
 
