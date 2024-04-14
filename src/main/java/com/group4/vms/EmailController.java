@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 public class EmailController {
-    @GetMapping
+    @GetMapping("/api/v1/messages")
     public List<Message> getAllMessagesByUserID(){
     return null;
     }

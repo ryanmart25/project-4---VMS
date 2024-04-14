@@ -23,7 +23,7 @@ public class EventController {
     public List<Event> getOtherEvents(@RequestParam(value = "userid", defaultValue = "0000000") ObjectId id){
         return this.eventService.getOtherEvents(id);
     }
-    @GetMapping("/allEvents{userid}") //Get all Events This user is signed up for // TODO someone else do this.
+    @GetMapping("/api/allEvents{userid}") //Get all Events This user is signed up for //
     public List<Event> getUsersEvents(
             @RequestParam(value = "userid", defaultValue = "00000000") String userid
             ) {

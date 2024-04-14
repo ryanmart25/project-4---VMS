@@ -4,10 +4,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -33,19 +30,23 @@ public class LoginController { // serves the login page to the user
         }
 
         //methods
-        @GetMapping("/api/v1/verify{username}{password}")
+        @GetMapping("/api/v1/verify")
         public ResponseEntity<LoginState> verifyLogin(
-
-
                 @RequestParam(value = "username", defaultValue = "N/A") String email,
                 @RequestParam(value = "password", defaultValue = "password") String password) {
-            HttpHeaders headers = new HttpHeaders();
-            headers.setAccessControlAllowOrigin("http://localhost:63342");
-            if(email.length() == 0 || password.length() == 0){
 
-            return new ResponseEntity<>(new LoginState(counter.incrementAndGet(), false),headers, HttpStatus.NO_CONTENT);
+
+            if(email.length() == 0 || password.length() == 0){ //this should be handled by frontend.
+            return new ResponseEntity<>(new LoginState(counter.incrementAndGet(), false), HttpStatus.NO_CONTENT);
             }
-            return new ResponseEntity<>(this.service.verifyLogin(email, password),headers, HttpStatus.FOUND);
+            LoginState state = this.service.verifyLogin(email, password);
+            if(state.loggedIn()){
+                return new ResponseEntity<>(state, HttpStatus.FOUND);
+            }
+            else{
+                return new ResponseEntity<>(state,HttpStatus.NOT_FOUND);
+            }
+
 
         }
 

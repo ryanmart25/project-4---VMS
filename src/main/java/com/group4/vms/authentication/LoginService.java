@@ -56,7 +56,7 @@ public class LoginService {
             }
         }
         else{ //email provided does not match a general email string format. send bad login.
-            return new LoginState(counter.incrementAndGet(), true);
+            return new LoginState(counter.incrementAndGet(), false);
         }
 
 
