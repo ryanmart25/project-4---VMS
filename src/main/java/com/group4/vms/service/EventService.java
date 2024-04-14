@@ -1,18 +1,11 @@
-package com.group4.vms;
+package com.group4.vms.service;
 
+import com.group4.vms.model.Event;
+import com.group4.vms.repository.EventRepository;
 import org.bson.types.ObjectId;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.TimeZone;
-
-import static org.springframework.data.mongodb.core.query.Criteria.where;
-import static org.springframework.data.mongodb.core.query.Query.query;
 
 @Service
 public class EventService { //TODO Revert, Implement lookup using simple FindAll or findbyID

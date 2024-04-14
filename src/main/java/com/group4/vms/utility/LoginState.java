@@ -1,4 +1,4 @@
-package com.group4.vms.authentication;
+package com.group4.vms.utility;
 
 public record LoginState(long id, boolean loggedIn) {
     // Represents a login. If the user has logged in successfully, the boolean is

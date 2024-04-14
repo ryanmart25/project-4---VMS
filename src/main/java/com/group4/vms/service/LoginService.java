@@ -1,9 +1,11 @@
-package com.group4.vms.authentication;
+package com.group4.vms.service;
 
 
-import com.group4.vms.Employee;
-import com.group4.vms.Volunteer;
-import lombok.extern.java.Log;
+import com.group4.vms.model.Employee;
+import com.group4.vms.model.Volunteer;
+import com.group4.vms.utility.LoginState;
+import com.group4.vms.repository.VolunteerRepository;
+import com.group4.vms.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

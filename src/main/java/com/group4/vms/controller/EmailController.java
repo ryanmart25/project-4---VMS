@@ -1,7 +1,7 @@
-package com.group4.vms;
+package com.group4.vms.controller;
 
+import com.group4.vms.utility.Message;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;

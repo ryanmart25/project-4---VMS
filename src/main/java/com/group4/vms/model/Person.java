@@ -1,4 +1,4 @@
-package com.group4.vms;
+package com.group4.vms.model;
 
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;

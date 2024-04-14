@@ -1,4 +1,4 @@
-package com.group4.vms;
+package com.group4.vms.model;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;

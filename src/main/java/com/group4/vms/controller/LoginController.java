@@ -1,6 +1,7 @@
-package com.group4.vms.authentication;
+package com.group4.vms.controller;
 
-import org.springframework.http.HttpHeaders;
+import com.group4.vms.service.LoginService;
+import com.group4.vms.utility.LoginState;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
