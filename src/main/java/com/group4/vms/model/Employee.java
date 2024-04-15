@@ -1,7 +1,9 @@
-package com.group4.vms;
+package com.group4.vms.model;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "employees")
 public class Employee extends Person {
 
     private boolean adminPrivs;
@@ -9,6 +11,10 @@ public class Employee extends Person {
     public Employee(ObjectId id, String name, String pronouns) {
         super(id, name, pronouns);
         this.adminPrivs = true;
+    }
+
+    public Employee() {
+        super();
     }
 
     public void setAdminPrivs() {
