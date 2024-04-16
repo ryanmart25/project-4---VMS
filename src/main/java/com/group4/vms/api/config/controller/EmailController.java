@@ -1,6 +1,6 @@
-package com.group4.vms.controller;
+package com.group4.vms.api.config.controller;
 
-import com.group4.vms.utility.Message;
+import com.group4.vms.api.config.utility.Message;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

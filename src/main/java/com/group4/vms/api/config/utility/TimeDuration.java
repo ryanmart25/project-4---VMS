@@ -1,4 +1,4 @@
-package com.group4.vms.utility;
+package com.group4.vms.api.config.utility;
 
 import java.util.Optional;
 import java.util.TimeZone;

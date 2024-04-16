@@ -1,6 +1,6 @@
-package com.group4.vms.repository;
+package com.group4.vms.api.config.repository;
 
-import com.group4.vms.model.Event;
+import com.group4.vms.api.config.model.Event;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;

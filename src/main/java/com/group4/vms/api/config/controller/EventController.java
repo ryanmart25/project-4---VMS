@@ -1,7 +1,7 @@
-package com.group4.vms.controller;
+package com.group4.vms.api.config.controller;
 
-import com.group4.vms.model.Event;
-import com.group4.vms.service.EventService;
+import com.group4.vms.api.config.model.Event;
+import com.group4.vms.api.config.service.EventService;
 import org.bson.types.ObjectId;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

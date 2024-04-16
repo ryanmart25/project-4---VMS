@@ -1,4 +1,4 @@
-package com.group4.vms.model;
+package com.group4.vms.api.config.model;
 
 public class User {
 

@@ -1,11 +1,10 @@
-package com.group4.vms.service;
+package com.group4.vms.api.config.service;
 
-import com.group4.vms.model.Entry;
-import com.group4.vms.repository.TimesheetRepository;
+import com.group4.vms.api.config.model.Entry;
+import com.group4.vms.api.config.repository.TimesheetRepository;
 import org.bson.json.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 

@@ -1,11 +1,11 @@
-package com.group4.vms.service;
+package com.group4.vms.api.config.service;
 
 
-import com.group4.vms.model.Employee;
-import com.group4.vms.model.Volunteer;
-import com.group4.vms.utility.LoginState;
-import com.group4.vms.repository.VolunteerRepository;
-import com.group4.vms.repository.EmployeeRepository;
+import com.group4.vms.api.config.model.Employee;
+import com.group4.vms.api.config.model.Volunteer;
+import com.group4.vms.api.config.utility.LoginState;
+import com.group4.vms.api.config.repository.VolunteerRepository;
+import com.group4.vms.api.config.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

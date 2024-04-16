@@ -1,4 +1,4 @@
-package com.group4.vms.config;
+package com.group4.vms.api.config;
 
 
 import org.springframework.beans.factory.annotation.Value;
