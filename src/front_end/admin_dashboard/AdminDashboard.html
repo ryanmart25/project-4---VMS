@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+   <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+   <div class="side-nav">
+      <div class="user">
+          <img src="images/ProfilePic.png" class="user-img">
+          <div>
+              <h2>Dylan Prosser</h2>
+              <p>dprosser@csus.edu</p>
+          </div>
+      </div>
+      <ul>
+          <li><img src = "images/DashBoard.png"><p>Dashboard</p></li>
+          <li><img src = "images/Mail.png"><p>Messages</p></li>
+          <li><img src = "images/TimeSheet.png"><p>Timesheet</p></li>
+          <li><img src = "images/settings.png"><p>Settings</p></li>
+      </ul>
+
+      <ul>
+          <div class="logo">
+              <li><img src = "images/Project4Logo.png" class = "logo-img"></li>
+          </div>
+      </ul>
+</div>
+<h1 class="heading">Your Events</h1>
+
+<div class="container">   
+   <div class="box-container">
+
+      <div class="box">
+         <div class="content">
+            <h3>Event 1</h3>
+            <p>Date: MM/DD/YYYY</p>
+            <p>Time: 00:00AM/PM</p>
+            <p>Location</p>
+            <a href="#" class="btn">view event</a>
+         </div>
+      </div>
+
+      <div class="box">
+         <div class="content">
+            <h3>Event 2</h3>
+            <p>Date: MM/DD/YYYY</p>
+            <p>Time: 00:00AM/PM</p>
+            <p>Location</p>
+            <a href="#" class="btn">view event</a>
+         </div>
+      </div>
+
+      <div class="box">
+         <div class="content">
+            <h3>Event 3</h3>
+            <p>Date: MM/DD/YYYY</p>
+            <p>Time: 00:00AM/PM</p>
+            <p>Location</p>
+            <a href="#" class="btn">view event</a>
+         </div>
+      </div>
+
+      <div class="box">
+         <div class="content">
+            <h3>Event 4</h3>
+            <p>Date: MM/DD/YYYY</p>
+            <p>Time: 00:00AM/PM</p>
+            <p>Location</p>
+            <a href="#" class="btn">view event</a>
+         </div>
+      </div>
+
+<!-- LOAD MORE ITEMS-->
+
+<div class="box">
+   <div class="content">
+      <h3>Event 1</h3>
+      <p>Date: MM/DD/YYYY</p>
+      <p>Time: 00:00AM/PM</p>
+      <p>Location</p>
+      <a href="#" class="btn">view event</a>
+   </div>
+</div>
+
+<div class="box">
+   <div class="content">
+      <h3>Event 2</h3>
+      <p>Date: MM/DD/YYYY</p>
+      <p>Time: 00:00AM/PM</p>
+      <p>Location</p>
+      <a href="#" class="btn">view event</a>
+   </div>
+</div>
+
+<div class="box">
+   <div class="content">
+      <h3>Event 3</h3>
+      <p>Date: MM/DD/YYYY</p>
+      <p>Time: 00:00AM/PM</p>
+      <p>Location</p>
+      <a href="#" class="btn">view event</a>
+   </div>
+</div>
+
+<div class="box">
+   <div class="content">
+      <h3>Event 4</h3>
+      <p>Date: MM/DD/YYYY</p>
+      <p>Time: 00:00AM/PM</p>
+      <p>Location</p>
+      <a href="#" class="btn">view event</a>
+   </div>
+</div>
+
+
+
+</div>
+   <div id="load-more"> load more </div>
+</div>
+
+
+
+<script>
+
+   let loadMoreBtn = document.querySelector('#load-more');
+   let currentItem = 4;
+   
+   loadMoreBtn.onclick = () =>{
+      let boxes = [...document.querySelectorAll('.container .box-container .box')];
+      for (var i = currentItem; i < currentItem + 4; i++){
+         boxes[i].style.display = 'inline-block';
+      }
+      currentItem += 4;
+   
+      if(currentItem >= boxes.length){
+         loadMoreBtn.style.display = 'none';
+      }
+   }
+   
+   </script>
+
+<hr class="solid">
+<!--Browse Events-->
+
+<h1 class="heading">Browse Other Events</h1>
+
+<div class="container">   
+   <div class="box-container">
+
+      <div class="box2">
+         <div class="content">
+            <h3>Event 1</h3>
+            <p>Date: MM/DD/YYYY</p>
+            <p>Time: 00:00AM/PM</p>
+            <p>Location</p>
+            <a href="#" class="btn">view event</a>
+         </div>
+      </div>
+
+      <div class="box2">
+         <div class="content">
+            <h3>Event 2</h3>
+            <p>Date: MM/DD/YYYY</p>
+            <p>Time: 00:00AM/PM</p>
+            <p>Location</p>
+            <a href="#" class="btn">view event</a>
+         </div>
+      </div>
+
+      <div class="box2">
+         <div class="content">
+            <h3>Event 3</h3>
+            <p>Date: MM/DD/YYYY</p>
+            <p>Time: 00:00AM/PM</p>
+            <p>Location</p>
+            <a href="#" class="btn">view event</a>
+         </div>
+      </div>
+
+      <div class="box2">
+         <div class="content">
+            <h3>Event 4</h3>
+            <p>Date: MM/DD/YYYY</p>
+            <p>Time: 00:00AM/PM</p>
+            <p>Location</p>
+            <a href="#" class="btn">view event</a>
+         </div>
+      </div>
+
+<!-- LOAD MORE ITEMS-->
+
+<div class="box2">
+   <div class="content">
+      <h3>Event 1</h3>
+      <p>Date: MM/DD/YYYY</p>
+      <p>Time: 00:00AM/PM</p>
+      <p>Location</p>
+      <a href="#" class="btn">view event</a>
+   </div>
+</div>
+
+<div class="box2">
+   <div class="content">
+      <h3>Event 1</h3>
+      <p>Date: MM/DD/YYYY</p>
+      <p>Time: 00:00AM/PM</p>
+      <p>Location</p>
+      <a href="#" class="btn">view event</a>
+   </div>
+</div>
+
+<div class="box2">
+   <div class="content">
+      <h3>Event 1</h3>
+      <p>Date: MM/DD/YYYY</p>
+      <p>Time: 00:00AM/PM</p>
+      <p>Location</p>
+      <a href="#" class="btn">view event</a>
+   </div>
+</div>
+
+<div class="box2">
+   <div class="content">
+      <h3>Event 1</h3>
+      <p>Date: MM/DD/YYYY</p>
+      <p>Time: 00:00AM/PM</p>
+      <p>Location</p>
+      <a href="#" class="btn">view event</a>
+   </div>
+</div>
+
+</div>
+<div id="load-more2"> load more </div>
+</div>
+
+</div>
+</div>
+
+
+<script>
+   let loadMoreBtn2 = document.querySelector('#load-more2');
+   let currentItem2 = 4;
+   
+   loadMoreBtn2.onclick = () =>{
+      let boxes2 = [...document.querySelectorAll('.container .box-container .box2')];
+      for (var i = currentItem2; i < currentItem2 + 4; i++){
+         boxes2[i].style.display = 'inline-block';
+      }
+      currentItem2 += 4;
+   
+      if(currentItem2 >= boxes2.length){
+         loadMoreBtn2.style.display = 'none';
+      }
+   }
+</script>
+
+
+
+
+
+</body>
+</html>
