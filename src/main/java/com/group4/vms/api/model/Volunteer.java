@@ -1,4 +1,4 @@
-package com.group4.vms.api.config.model;
+package com.group4.vms.api.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

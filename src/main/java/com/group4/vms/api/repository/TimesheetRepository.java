@@ -1,7 +1,7 @@
-package com.group4.vms.api.config.repository;
+package com.group4.vms.api.repository;
 
 
-import com.group4.vms.api.config.model.Entry;
+import com.group4.vms.api.model.Entry;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;

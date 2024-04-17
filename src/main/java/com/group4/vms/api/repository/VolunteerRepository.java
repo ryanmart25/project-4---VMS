@@ -1,6 +1,6 @@
-package com.group4.vms.api.config.repository;
+package com.group4.vms.api.repository;
 
-import com.group4.vms.api.config.model.Volunteer;
+import com.group4.vms.api.model.Volunteer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;

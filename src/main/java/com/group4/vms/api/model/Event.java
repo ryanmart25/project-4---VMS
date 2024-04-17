@@ -1,9 +1,9 @@
-package com.group4.vms.api.config.model;
+package com.group4.vms.api.model;
 
 import java.util.Date;
 import java.util.LinkedList;
 
-import com.group4.vms.api.config.utility.TimeDuration;
+import com.group4.vms.api.utility.TimeDuration;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 

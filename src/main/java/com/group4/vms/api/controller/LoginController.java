@@ -1,7 +1,7 @@
-package com.group4.vms.api.config.controller;
+package com.group4.vms.api.controller;
 
-import com.group4.vms.api.config.service.LoginService;
-import com.group4.vms.api.config.utility.LoginState;
+import com.group4.vms.api.service.LoginService;
+import com.group4.vms.api.utility.LoginState;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

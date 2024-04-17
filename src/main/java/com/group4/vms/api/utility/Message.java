@@ -1,4 +1,4 @@
-package com.group4.vms.api.config.utility;
+package com.group4.vms.api.utility;
 
 import org.bson.types.ObjectId;
 

@@ -1,7 +1,7 @@
-package com.group4.vms.api.config.service;
+package com.group4.vms.api.service;
 
-import com.group4.vms.api.config.model.Event;
-import com.group4.vms.api.config.repository.EventRepository;
+import com.group4.vms.api.model.Event;
+import com.group4.vms.api.repository.EventRepository;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
