@@ -19,5 +19,9 @@ public class VolunteerRepository {
 
     }
 
+    public List<Volunteer> getLoginInfo(String email){ //overloaded w/o password for new accs
+        return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email)), Volunteer.class);
+
+    }
 
 }
