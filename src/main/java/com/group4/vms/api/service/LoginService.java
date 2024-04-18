@@ -76,7 +76,7 @@ public class LoginService {
             return new LoginState(counter.incrementAndGet(), false);
         }
 
-
+        return new LoginState(counter.incrementAndGet(), false);
     }
 
     ////utility methods to support the service methods
