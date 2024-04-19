@@ -1,11 +1,11 @@
-package com.group4.vms.service;
+package com.group4.vms.api.service;
 
 
-import com.group4.vms.model.Employee;
-import com.group4.vms.model.Volunteer;
-import com.group4.vms.utility.LoginState;
-import com.group4.vms.repository.VolunteerRepository;
-import com.group4.vms.repository.EmployeeRepository;
+import com.group4.vms.api.model.Employee;
+import com.group4.vms.api.model.User;
+import com.group4.vms.api.utility.LoginState;
+import com.group4.vms.api.repository.VolunteerRepository;
+import com.group4.vms.api.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,20 +48,35 @@ public class LoginService {
             //2. if user exists, good login
             //3. if user does not exist, bad login
             List<Employee> employees = this.employeeRepository.getLoginInfo(email, password);
-            List<Volunteer> volunteers = this.volunteerRepository.getLoginInfo(email, password);
+            List<User> users = this.volunteerRepository.getLoginInfo(email, password);
 
-            if(employees.isEmpty() && volunteers.isEmpty()){
+            if(employees.isEmpty() && users.isEmpty()){
                 return new LoginState(counter.incrementAndGet(), false);
             }
             else {
-                return new LoginState(counter.incrementAndGet(), true);
+                for (Employee employee : employees) {
+                    if(employee.isApproved()){
+                        return new LoginState(counter.incrementAndGet(), true);
+                        }
+                    else{
+                        return new LoginState(counter.incrementAndGet(), false);
+                    }
+                }
+                for (User user : users) {
+                    if(user.isApproved()) {
+                        return new LoginState(counter.incrementAndGet(), true);
+                        }
+                    else {
+                        return new LoginState(counter.incrementAndGet(), false);
+                    }
+                }
             }
         }
         else{ //email provided does not match a general email string format. send bad login.
             return new LoginState(counter.incrementAndGet(), false);
         }
 
-
+        return new LoginState(counter.incrementAndGet(), false);
     }
 
     ////utility methods to support the service methods

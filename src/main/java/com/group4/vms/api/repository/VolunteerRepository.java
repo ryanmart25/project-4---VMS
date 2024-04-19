@@ -1,6 +1,6 @@
-package com.group4.vms.repository;
+package com.group4.vms.api.repository;
 
-import com.group4.vms.model.Volunteer;
+import com.group4.vms.api.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -14,8 +14,8 @@ public class VolunteerRepository {
     @Autowired
     MongoTemplate mongoTemplate;
 
-    public List<Volunteer> getLoginInfo(String email, String password){
-        return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email).and("password").is(password)), Volunteer.class);
+    public List<User> getLoginInfo(String email, String password){
+        return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email).and("password").is(password)), User.class);
 
     }
 

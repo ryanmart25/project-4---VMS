@@ -1,14 +1,14 @@
-package com.group4.vms.service;
+package com.group4.vms.api.service;
 
-import com.group4.vms.model.Entry;
-import com.group4.vms.repository.TimesheetRepository;
+import com.group4.vms.api.model.Entry;
+import com.group4.vms.api.repository.TimesheetRepository;
 import org.bson.json.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class TimesheetService {
 
     @Autowired
