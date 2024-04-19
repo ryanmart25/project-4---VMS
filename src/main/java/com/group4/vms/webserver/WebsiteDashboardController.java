@@ -12,7 +12,7 @@ public class WebsiteDashboardController {
     }
     @GetMapping("/admindashboard")
     String getAdminDashboardPage(){
-        return "admindashboard";
+        return "AdminDashboard";
     }
 
 }

@@ -11,6 +11,6 @@ public class WebSiteLoginController {
     }
     @GetMapping("/createaccount")
     String getCreateAccountPage(){
-        return "createaccount";
+        return "signup";
     }
 }
