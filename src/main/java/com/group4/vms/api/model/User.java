@@ -1,24 +1,19 @@
-package com.group4.vms.api.model;
+package com.group4.vms.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Document(collection = "volunteers")
-public class User {
-    @Id
-    ObjectId id;
-    String name;
-    String email;
-    String password;
-    String pronouns;
-    boolean approved;
-}
+public class Volunteer extends User{
+    
+    private boolean adminPrivs;
+    
+    public Volunteer(ObjectId id, String name, String email, String password, String pronouns) {
+        super(id, name, email, password, pronouns, false);
+    }
 
+    public Volunteer() {
+        super();
+    }
+}
 
