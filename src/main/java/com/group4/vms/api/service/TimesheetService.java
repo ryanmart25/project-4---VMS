@@ -5,9 +5,10 @@ import com.group4.vms.api.repository.TimesheetRepository;
 import org.bson.json.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class TimesheetService {
 
     @Autowired
