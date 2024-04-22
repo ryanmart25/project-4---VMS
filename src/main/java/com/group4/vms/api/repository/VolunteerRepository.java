@@ -1,7 +1,9 @@
 package com.group4.vms.api.repository;
 
-import com.group4.vms.model.User;
-import com.group4.vms.model.Volunteer;
+import com.group4.vms.api.model.Employee;
+import com.group4.vms.api.model.User;
+import com.group4.vms.api.model.Volunteer;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;

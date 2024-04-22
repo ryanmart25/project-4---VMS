@@ -1,13 +1,11 @@
 package com.group4.vms.api.service;
 
 
-import com.group4.vms.model.Employee;
-import com.group4.vms.model.User;
+import com.group4.vms.api.model.Employee;
+import com.group4.vms.api.model.User;
 import com.group4.vms.api.utility.LoginState;
 import com.group4.vms.api.repository.VolunteerRepository;
 import com.group4.vms.api.repository.EmployeeRepository;
-
-import com.group4.vms.model.Volunteer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,9 +48,9 @@ public class LoginService {
             //2. if user exists, good login
             //3. if user does not exist, bad login
             List<Employee> employees = this.employeeRepository.getLoginInfo(email, password);
-            List<Volunteer> volunteers = this.volunteerRepository.getLoginInfo(email, password);
+            List<User> users = this.volunteerRepository.getLoginInfo(email, password);
 
-            if(employees.isEmpty() && volunteers.isEmpty()){
+            if(employees.isEmpty() && users.isEmpty()){
                 return new LoginState(counter.incrementAndGet(), false);
             }
             else {
@@ -64,7 +62,7 @@ public class LoginService {
                         return new LoginState(counter.incrementAndGet(), false);
                     }
                 }
-                for (User user : volunteers) {
+                for (User user : users) {
                     if(user.isApproved()) {
                         return new LoginState(counter.incrementAndGet(), true);
                         }
