@@ -3,6 +3,7 @@ package com.group4.vms.api.service;
 
 import com.group4.vms.api.model.Employee;
 import com.group4.vms.api.model.User;
+import com.group4.vms.api.model.Volunteer;
 import com.group4.vms.api.utility.LoginState;
 import com.group4.vms.api.repository.VolunteerRepository;
 import com.group4.vms.api.repository.EmployeeRepository;
@@ -48,7 +49,7 @@ public class LoginService {
             //2. if user exists, good login
             //3. if user does not exist, bad login
             List<Employee> employees = this.employeeRepository.getLoginInfo(email, password);
-            List<User> users = this.volunteerRepository.getLoginInfo(email, password);
+            List<Volunteer> users = this.volunteerRepository.getLoginInfo(email, password);
 
             if(employees.isEmpty() && users.isEmpty()){
                 return new LoginState(counter.incrementAndGet(), false);
