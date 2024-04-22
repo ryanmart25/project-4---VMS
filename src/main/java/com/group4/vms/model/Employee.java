@@ -8,16 +8,14 @@ public class Employee extends User {
 
     private boolean adminPrivs;
 
-    public Employee(ObjectId id, String name, String email, String password, String pronouns) {
-        super(id, name, email, password, pronouns, true);
+    public Employee(ObjectId id, String name, String email, String password, String pronouns, boolean approved) {
+        super(id, name, email, password, pronouns, approved);
+    this.adminPrivs = true;
     }
 
-    public Employee() {
-        super();
-    }
 
     public void setAdminPrivs() {
         // should only be used to revoke admin privs from this Employee
-        this.isEmployee = false;
+        this.adminPrivs = !this.adminPrivs;
     }
 }

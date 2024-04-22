@@ -27,10 +27,9 @@ public class LoginController {
             @RequestParam(value = "password", defaultValue = "password") String password) {
 
 
-        if(email.length() == 0 || password.length() == 0){ //this should be handled by frontend.
-            return new ResponseEntity<>(new LoginState(counter.incrementAndGet(), false), HttpStatus.NO_CONTENT);
-        }
+
         LoginState state = this.service.verifyLogin(email, password);
+        System.out.println(state);
         if(state.loggedIn()){
             return new ResponseEntity<>(state, HttpStatus.FOUND);
         }
