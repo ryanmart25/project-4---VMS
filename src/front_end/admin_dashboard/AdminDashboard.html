@@ -96,5 +96,26 @@
       const numOtherEvents = prompt("Enter the number of other events:");
       createBoxes('other-event-container', 'box2', parseInt(numOtherEvents));
    </script>
+
+<script>
+   async function fetchEventIds(userId) {
+       const response = await fetch(`/api/v1/otherEvents?userid=${userId}`);
+       const events = await response.json();
+       return events.map(event => event._id);
+   }
+
+   // Call this function to obtain all event IDs
+   const userId = '661edf0d7583161e07fc1528';
+   fetchEventIds(userId)
+       .then(eventIds => {
+           console.log("All Event IDs:", eventIds);
+       })
+       .catch(error => console.error('Error fetching event IDs:', error));
+
+</script>
+
+
+
+
 </body>
 </html>
