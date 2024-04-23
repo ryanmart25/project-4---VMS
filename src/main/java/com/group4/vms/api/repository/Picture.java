@@ -1,16 +1,16 @@
-package com.group4.vms.model;
+package com.group4.vms.api.repository;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 @Data
-@Document(collection = "timesheet")
-public class Entry {
+@Document(collection = "profilepictures")
+@AllArgsConstructor
+public class Picture {
     @Id
     ObjectId id;
-    private String name;
-    private ObjectId[] events;
-    private double[] timeVolunteered;
+    String name;
+    byte[] bytes;
 }
