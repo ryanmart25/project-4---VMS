@@ -1,13 +1,15 @@
 package com.group4.vms.api.controller;
 
-import com.group4.vms.api.service.LoginService;
-import com.group4.vms.api.utility.LoginState;
+import java.util.concurrent.atomic.AtomicLong;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.concurrent.atomic.AtomicLong;
+import com.group4.vms.api.service.LoginService;
+import com.group4.vms.api.utility.LoginState;
 
 @RestController
 public class LoginController {
@@ -39,7 +41,7 @@ public class LoginController {
 
 
     }
-
+/*
     @PostMapping("/api/v1/adduser{email}{password}{name}{pronouns}")
     public LoginState postNewUser(
             //and add the new user to the database.
@@ -49,7 +51,7 @@ public class LoginController {
             @RequestParam(value = "pronouns", defaultValue = "JohnDoe") String pronouns) {
         return this.service.addAccount(email, password, name, pronouns);
     }
-
+*/
 }
 
 // The following code accepted a URL query parameter and showed it to the user

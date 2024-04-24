@@ -25,4 +25,10 @@ public class VolunteerRepository {
 
     }
 
+    public boolean newVol(Volunteer vol) {
+        this.mongoTemplate.insert(vol, "volunteers");
+        //if (this.mongoTemplate.find(Query.query(Criteria.where)), null)))
+        return false;
+    }
+
 }
