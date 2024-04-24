@@ -6,11 +6,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "employees")
 public class Employee extends User{
 
-    private boolean adminPrivs = false;
+    private boolean adminPrivs;
 
-    public Employee(ObjectId id, String name, String email, String password, String pronouns, boolean approved) {
-        super(id, name, email, password, pronouns, approved);
-
+    public Employee(ObjectId id, String name, String email, String password, String pronouns, boolean isEmployee, boolean approved) {
+        super(id, name, email, password, pronouns, isEmployee, approved);
+        this.adminPrivs = true;
     }
 
 

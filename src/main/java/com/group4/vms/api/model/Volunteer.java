@@ -7,11 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Volunteer extends User{
         
     public Volunteer(ObjectId id, String name, String email, String password, String pronouns) {
-        super(id, name, email, password, pronouns, false);
-    }
-
-    public Volunteer() {
-        super();
+        super(id, name, email, password, pronouns, false, false);
     }
 }
 

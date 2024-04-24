@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
-
+@CrossOrigin(origins = "http://localhost:63342")
 @RestController
 public class LoginController {
     //fields
