@@ -3,15 +3,16 @@ package com.group4.vms.api.model;
 import java.util.Date;
 import java.util.LinkedList;
 
-import com.group4.vms.api.utility.TimeDuration;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
+
+import com.group4.vms.api.utility.TimeDuration;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 @Data
 @NoArgsConstructor
@@ -24,4 +25,5 @@ public class Event {
     TimeDuration duration;
     @DocumentReference
     private LinkedList<ObjectId> volunteerList;
+    private LinkedList<ObjectId> requestedVolunteers;
 }
