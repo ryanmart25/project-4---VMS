@@ -1,14 +1,13 @@
 package com.group4.vms.api.repository;
 
-import java.util.List;
-
+import com.group4.vms.api.model.Volunteer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import com.group4.vms.api.model.Volunteer;
+import java.util.List;
 
 @Repository
 public class VolunteerRepository {

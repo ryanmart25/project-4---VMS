@@ -13,11 +13,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 //@Document(collection = "volunteers")
 public class User {
     @Id
-    ObjectId id;
-    String name;
-    String email;
-    String password;
-    String pronouns;
-    Boolean isEmployee;
+    private ObjectId id;
+    private String name;
+    private String email;
+    private String password;
+    private String pronouns;
+    private Boolean isEmployee;
+    private boolean approved;
 
 }
