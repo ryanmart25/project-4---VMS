@@ -16,8 +16,8 @@ public class EmployeeRepository{
     MongoTemplate mongoTemplate;
 
     public List<Employee> getLoginInfo(String email, String password){
-       // return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email).and("password").is(password)), Employee.class);
-        return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email)), Employee.class);
+        return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email).and("password").is(password)), Employee.class);
+        //return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email)), Employee.class);
     }
 
     public List<Employee> getLoginInfo(String email){ //overloaded w/o password for new accs
