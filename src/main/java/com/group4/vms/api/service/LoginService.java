@@ -59,7 +59,7 @@ public class LoginService {
             if(e.getEmail().equals(email)){
                 return new LoginState(counter.incrementAndGet(), false);
             }
-            Employee nEmp = new Employee(new ObjectId(), name, email, password, pronouns, false);
+            Employee nEmp = new Employee(new ObjectId(), name, email, password, pronouns, true, false);
             employeeRepository.newEmp(nEmp);
         }
 
