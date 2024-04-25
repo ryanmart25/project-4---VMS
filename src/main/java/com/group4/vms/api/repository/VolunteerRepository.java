@@ -15,13 +15,19 @@ public class VolunteerRepository {
     MongoTemplate mongoTemplate;
 
     public List<Volunteer> getLoginInfo(String email, String password){
-       return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email).and("password").is(password)), Volunteer.class);
+        return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email).and("password").is(password)), Volunteer.class);
         //return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email)), User.class);
     }
 
     public List<Volunteer> getLoginInfo(String email){ //overloaded w/o password for new accs
         return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email)), Volunteer.class);
 
+    }
+
+    public boolean newVol(Volunteer vol) {
+        this.mongoTemplate.insert(vol, "volunteers");
+        //if (this.mongoTemplate.find(Query.query(Criteria.where)), null)))
+        return false;
     }
 
 }

@@ -39,7 +39,7 @@ public class LoginController {
 
 
     }
-
+/*
     @PostMapping("/api/v1/adduser{email}{password}{name}{pronouns}")
     public LoginState postNewUser(
             //and add the new user to the database.
@@ -49,7 +49,7 @@ public class LoginController {
             @RequestParam(value = "pronouns", defaultValue = "JohnDoe") String pronouns) {
         return this.service.addAccount(email, password, name, pronouns);
     }
-
+*/
 }
 
 // The following code accepted a URL query parameter and showed it to the user
