@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // add api connection
-        const url = `/api/v1/verify?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
+        const url = `http://localhost:63342/api/v1/verify?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
         
         fetch(url, {
             method: 'GET',
