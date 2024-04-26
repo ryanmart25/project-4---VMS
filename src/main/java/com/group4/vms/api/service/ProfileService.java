@@ -2,7 +2,7 @@ package com.group4.vms.api.service;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.group4.vms.api.repository.Picture;
+import com.group4.vms.api.model.Picture;
 import com.group4.vms.api.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
