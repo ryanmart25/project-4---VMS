@@ -2,6 +2,7 @@ package com.group4.vms.api.repository;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -29,5 +30,19 @@ public class EmployeeRepository{
         this.mongoTemplate.insert(emp, "employees");
         //if (this.mongoTemplate.find(Query.query(Criteria.where)), null)))
         return false;
+    }
+
+    public Employee getApprovalStatus(String name, String email, ObjectId id) {
+        Query query = new Query(
+                Criteria.where("email").is(email)
+                        .and(name).is(name)
+                        .and("_id").is(id));
+        return this.mongoTemplate.findOne(query, Employee.class);
+    }
+
+    public Employee getApprovalStatus(String name, String email){
+        //return an employee if they have been approved
+        Query query = new Query(Criteria.where("name").is(name).and("email").is(email));
+        return this.mongoTemplate.findOne(query, Employee.class);
     }
 }

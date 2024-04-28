@@ -31,7 +31,10 @@ public class VolunteerRepository {
         return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email)), Volunteer.class);
 
     }
-
+    public Volunteer getApprovalStatus(String name, String email, ObjectId id){
+        Query query = new Query(Criteria.where("_id").is(id).and("name").is(name).and("email").is(email));
+        return this.mongoTemplate.findOne(query, Volunteer.class);
+    }
     public boolean newVol(Volunteer vol) {
         this.mongoTemplate.insert(vol, "volunteers");
         //if (this.mongoTemplate.find(Query.query(Criteria.where)), null)))

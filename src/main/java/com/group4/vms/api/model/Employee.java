@@ -9,7 +9,7 @@ public class Employee extends User{
     //private boolean adminPrivs;
 
     public Employee(ObjectId id, String name, String email, String password, String pronouns, boolean isEmployee, boolean approved) {
-        super(id, name, email, password, pronouns, true, false);
+        super(id, name, email, password, pronouns, isEmployee, approved);
         //this.adminPrivs = true;
     }
 
