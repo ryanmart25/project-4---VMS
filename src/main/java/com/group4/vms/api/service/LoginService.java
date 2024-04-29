@@ -69,42 +69,46 @@ public class LoginService {
     public LoginState verifyLogin(String email, String password){ //is this the correct way to implement this?
                                                                     //How do you give this user a session? how do i protect my other APIs
         //verification: string
-        if(email.matches("/w+[@]/w+[.]/w{3,}")){//ensuring the email string matches a general email string format:
-            //1 or more characters, followed by an '@',  followed by a domain name.
+        // 1 or more characters, followed by an '@',  followed by a domain name.
 
-            //1. search for user
-            //2. if user exists, good login
-            //3. if user does not exist, bad login
-            List<Employee> employees = this.employeeRepository.getLoginInfo(email, password);
-            List<Volunteer> users = this.volunteerRepository.getLoginInfo(email, password);
+                    //1. search for user
+                    //2. if user exists, good login
+                    //3. if user does not exist, bad login
+                    List<Employee> employees = this.employeeRepository.getLoginInfo(email, password);
+                    List<Volunteer> users = this.volunteerRepository.getLoginInfo(email, password);
 
-            if(employees.isEmpty() && users.isEmpty()){
-                return new LoginState(counter.incrementAndGet(), false);
-            }
-            else {
-                for (Employee employee : employees) {
-                    if(employee.isApproved()){
-                        return new LoginState(counter.incrementAndGet(), true);
-                        }
-                    else{
+                    if(employees.isEmpty() && users.isEmpty()){
                         return new LoginState(counter.incrementAndGet(), false);
                     }
-                }
-                for (User user : users) {
-                    if(user.isApproved()) {
-                        return new LoginState(counter.incrementAndGet(), true);
-                        }
                     else {
-                        return new LoginState(counter.incrementAndGet(), false);
+                        for (Employee employee : employees) {
+                            if(employee.isApproved()){
+                                return new LoginState(counter.incrementAndGet(), true);
+                                }
+                            else{
+                                return new LoginState(counter.incrementAndGet(), false);
+                            }
+                        }
+                        for (User user : users) {
+                            if(user.isApproved()) {
+                                return new LoginState(counter.incrementAndGet(), true);
+                                }
+                            else {
+                                return new LoginState(counter.incrementAndGet(), false);
+                            }
+                        }
                     }
-                }
-            }
-        }
-        else{ //email provided does not match a general email string format. send bad login.
-            return new LoginState(counter.incrementAndGet(), false);
-        }
+                    /*
+                    email verification
+                     if(email.matches("/w+[@]/w+[.]/w{3,}")){//ensuring the email string matches a general email string format:
 
-        return new LoginState(counter.incrementAndGet(), false);
+                     }
+                     else{ //email provided does not match a general email string format. send bad login.
+                         return new LoginState(counter.incrementAndGet(), false);
+                     }
+                    */
+
+        return new LoginState(counter.incrementAndGet(), true);
     }
 
     ////utility methods to support the service methods
