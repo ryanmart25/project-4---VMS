@@ -1,11 +1,14 @@
 package com.group4.vms.api.repository;
 
+import com.group4.vms.api.model.Employee;
 import com.group4.vms.api.model.Volunteer;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -34,6 +37,20 @@ public class VolunteerRepository {
     public Volunteer getApprovalStatus(String name, String email, ObjectId id){
         Query query = new Query(Criteria.where("_id").is(id).and("name").is(name).and("email").is(email));
         return this.mongoTemplate.findOne(query, Volunteer.class);
+    }
+    public boolean setApprovalStatus(String email, boolean status) {
+        boolean state;
+        Query query = new Query(Criteria.where("email").is(email));
+        Update update = new Update();
+        update.set("approved", status);
+        UpdateResult result = this.mongoTemplate.updateFirst(query,update, Employee.class);
+        state =  !(result.getModifiedCount() < 1.0);
+        if (!state) {
+            query = new Query(Criteria.where("email").is(email));
+            result = this.mongoTemplate.updateFirst(query, update, Employee.class);
+            state = !(result.getModifiedCount() < 1.0);
+        }
+        return state;
     }
     public boolean newVol(Volunteer vol) {
         this.mongoTemplate.insert(vol, "volunteers");

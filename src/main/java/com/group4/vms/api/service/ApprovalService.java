@@ -61,4 +61,13 @@ public class ApprovalService {
         assert vol != null;
         return vol.isApproved();
     }
+
+    public boolean setVolunteerApproval(String email, boolean status) {
+
+        return this.volunteerRepository.setApprovalStatus(email, status);
+    }
+
+    public boolean setEmployeeApproval(String email, boolean status) {
+    return this.employeeRepository.setApprovalStatus(email, status);
+    }
 }

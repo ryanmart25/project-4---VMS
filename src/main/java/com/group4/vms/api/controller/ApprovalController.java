@@ -13,7 +13,7 @@ public class ApprovalController {
     @Autowired
     ApprovalService approvalService;
 
-    @GetMapping("api/v1/approval")
+    @GetMapping("api/v1/getapproval")
     public boolean getApproval(
             @RequestParam(value="name", required = false) String name,
             @RequestParam(value ="email") String email,
@@ -26,5 +26,20 @@ public class ApprovalController {
             return this.approvalService.getApprovalStatus(email);
         }
     }
-
+    @GetMapping("api/v1/setVolunteerApproval")
+    public boolean setVolunteerApproval(@RequestParam(required = false, value="name") String name,
+                               @RequestParam(required = true, value = "email") String email,
+                               @RequestParam(required = false, value = "id") ObjectId id,
+                               @RequestParam(required = true, value = "status") boolean status)
+    {
+        return this.approvalService.setVolunteerApproval(email, status);
+    }
+    @GetMapping("api/v1/setEmployeeApproval")
+    public boolean setEmployeeApproval(@RequestParam(required = false, value="name") String name,
+                               @RequestParam(required = true, value = "email") String email,
+                               @RequestParam(required = false, value = "id") ObjectId id,
+                               @RequestParam(required = true, value = "status") boolean status)
+    {
+        return this.approvalService.setEmployeeApproval(email, status);
+    }
 }
