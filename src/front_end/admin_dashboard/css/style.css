@@ -321,3 +321,24 @@ body{
     font-size: 12px;
   }
 }
+
+.center-container {
+  text-align: center;
+}
+
+.create-event-btn {
+  background-color: rgb(4, 57, 39); /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.create-event-btn:hover {
+  background-color: rgb(4, 57, 39);; /* Darker Green */
+}

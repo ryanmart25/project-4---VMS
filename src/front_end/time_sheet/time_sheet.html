@@ -4,27 +4,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Events Timesheet</title>
-
+<link rel="stylesheet" href="css/style.css"> <!-- Include the CSS file -->
 </head>
-<link rel="stylesheet" href="css/style.css">
 <body>
 
-<h2>Timesheet</h2>
+<div class="side-nav">
+   <div class="user">
+      <img src="images/ProfilePic.png" class="user-img">
+      <div>
+         <h2>Dylan Prosser</h2>
+         <p>dprosser@csus.edu</p>
+      </div>
+  </div>
+  <ul>
+      <li><img src="images/DashBoard.png"><p>Dashboard</p></li>
+      <li><img src="images/Mail.png"><p>Messages</p></li>
+      <li><img src="images/TimeSheet.png"><p>Timesheet</p></li>
+      <li><img src="images/settings.png"><p>Settings</p></li>
+  </ul>
 
-<table id="editableTable">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- Placeholder row for structure -->
-    <tr style="display: none;"></tr>
-  </tbody>
-</table>
+  <ul>
+      <div class="logo">
+          <li><img src="images/Project4Logo.png" class="logo-img"></li>
+      </div>
+  </ul>
+</div>
 
-<button class="add-column-btn" onclick="addColumn()">Add Column</button>
+<div class="content">
+    <h2>Timesheet</h2>
+
+    <table id="editableTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Placeholder row for structure -->
+        <tr style="display: none;"></tr>
+      </tbody>
+    </table>
+
+    <button class="add-column-btn" onclick="addColumn()">Add Column</button>
+</div>
 
 <script>
     // Load table data from server when the page loads

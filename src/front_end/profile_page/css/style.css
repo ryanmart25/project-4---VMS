@@ -1,3 +1,4 @@
+/* Your existing CSS for the side navigation */
 *{
     font-family: 'Montserrat', sans-serif;
     margin:0; padding:0;
@@ -108,51 +109,91 @@
  .side-nav:hover ul li{
    justify-content: flex-start;
  }
- 
 
+/* Your existing CSS for the content area */
 .content {
-    margin-left: 150px; /* Adjust according to the width of your side navigation */
-    padding: 30px; /* Add padding to ensure content isn't too close to the side */
+    margin-left: 150px;
+    padding: 30px; 
 }
+
+
+
+
+h1, h2, p, .label {
+    color: #fff; /* Change text color to white */
+}
+
+.detail {
+    color: #000; /* Keep text color of details black */
+}
+
+.username {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    width: 150px;
+    color: #000; /* Change text color to black */
+}
+
+
+
+
+
+.label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.profile-info {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: none;
+    display: flex;
+    align-items: flex-start;
+}
+
+.profile-image {
+    width: 50vw; /* Add margin to create space */
+}
+
+.profile-image img {
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+}
+
+.profile-details {
+    flex: 1;
+}
+
+
+.detail-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    width: 200%; /* Double the width */
+}
+
+.detail-box p {
+    margin: 0;
+    font-size: 18px;
+}
+
+
 
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(4, 57, 39); /* Set background color */
-    color: white; /* Set default text color */
+    background-image: url('../images/profilebackground.png');
+    background-size: cover;
+    background-position: center;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: rgb(75, 75, 75); /* Set table background color */
-}
-
-th,
-td {
-    padding: 8px;
-    border-bottom: 1px solid rgb(39, 39, 39);
-    text-align: left;
-}
-
-th {
-    background-color: rgb(39, 39, 39);
-}
-
-tr:hover {
-    background-color: #868686;
-}
-
-input[type="text"] {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.add-column-btn {
-    margin-top: 10px;
-    padding: 5px 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
