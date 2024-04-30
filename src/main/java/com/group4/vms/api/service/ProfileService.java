@@ -1,19 +1,11 @@
 package com.group4.vms.api.service;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.group4.vms.api.model.Picture;
 import com.group4.vms.api.repository.ProfileRepository;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
 
 @Service
 public class ProfileService {
@@ -25,16 +17,20 @@ public class ProfileService {
 
     //methods
     public ResponseEntity<byte[]> getImage(String name) {
-            List<Picture> pictures = this.profileRepository.findByName(name);
-            if(pictures.isEmpty()){
+            byte[] pictures = this.profileRepository.getImageByName(name);
+            if(pictures[0] == 0){
               return ResponseEntity.notFound().build();
             }
-            ResponseEntity<byte[]> response = ResponseEntity.ok(pictures.get(0).getBytes());
-            response.getHeaders().set("Content-Type", "image/jpg");
+            ResponseEntity<byte[]> response = ResponseEntity.ok(pictures);
+            response.getHeaders().set("Content-Type", "image/png");
             return response;
     }
 
-    public ResponseEntity<byte[]> getInfo(String name) {
-        return null;
+    public String[] getInfoByID(ObjectId id) {
+        return this.profileRepository.getVolunteerProfileInfoByObjectID(id);
+    }
+
+    public String[] getInfo(String name) {
+        return this.profileRepository.getVolunteerProfileInfoByName(name);
     }
 }
