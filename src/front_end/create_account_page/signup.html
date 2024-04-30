@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="with=device-width" />
+        <meta name="viewport" content="width=device-width", initial-scale=1.0">
         <title>Project VMS Create Account</title>     
         <link rel="stylesheet" type="text/css" href="style/style.css">
         
@@ -13,7 +13,7 @@
     <body>
         
         <div class="wrapper">
-            <form action="">
+            <form class="form" id="signup">
                 <h1>Create Account</h1>
                 <div class="input-box">
                     <input type="text" placeholder="Username" required>           
@@ -24,11 +24,12 @@
                 <div class="input-box">
                     <input type="password" placeholder="Confirm Password" required>
                 </div>
-                <button type="login" class="btn">Sign Up</button>  
+                <button type="submit" class="btn">Sign Up</button>  
                 <div class="loginlink">
                     <a href="../login_page/login.html">Return to Login</a>
                 </div>             
             </form>
         </div>  
+        <script src="scripts/signup.js"></script>
     </body>
 </html>

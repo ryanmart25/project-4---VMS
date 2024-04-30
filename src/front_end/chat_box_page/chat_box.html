@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Editable Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .edit {
+            background-color: #f9f9f9;
+        }
+        .action {
+            text-align: center;
+        }
+        .action button {
+            padding: 5px 10px;
+            margin: 2px;
+            background-color: lightgray;
+            border: 1px solid gray;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<table id="editableTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Messages</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td contenteditable="true">John Doe</td>
+            <td contenteditable="true">Hi, I'm not available today</td>
+        </tr>
+        <tr>
+            <td contenteditable="true">John Doe</td>
+            <td contenteditable="true">Hi, I'm not available today</td>
+        </tr>
+    </tbody>
+</table>
+
+<button onclick="addRow()">more messages</button>
+<script src="scripts/chat_box.js"></script>
+</body>
+</html>
