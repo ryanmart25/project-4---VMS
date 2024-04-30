@@ -16,11 +16,11 @@ public class EventService { //TODO Revert, Implement lookup using simple FindAll
 
     }
 
-    public List<Event> getbyUserID(ObjectId userid){ //return events the user is signed up for.
+    public List<Event> getByUserID(ObjectId userid){ //return events the user is signed up for.
         return eventRepository.getMyEvents(userid);
 
     }
-    
+
     public List<Event> getOtherEvents(ObjectId volunteerID){ //grab all events the volunteer is NOT signed up for
         return eventRepository.getOtherEvents(volunteerID);
 

@@ -17,7 +17,7 @@ public class EventController {
     }
     @GetMapping("api/v1/allEvents")//get every single event
     public List<Event> getAllEvents(){
-        return null;
+        return eventService.getEventList();
     }
     @GetMapping("/api/v1/otherEvents{userID}")
     public List<Event> getOtherEvents(@RequestParam(value = "userid", defaultValue = "0000000") ObjectId id){
@@ -27,7 +27,8 @@ public class EventController {
     public List<Event> getUsersEvents(
             @RequestParam(value = "userid", defaultValue = "00000000") String userid
             ) {
-    return null;
+        
+        return eventService.getByUserID(new ObjectId(userid));
     }
 
 }
