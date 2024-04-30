@@ -27,6 +27,6 @@ public class Event {
     String location;
     String description;
     @DocumentReference
-    private ObjectId[] confirmedVolunteer;
+    private ObjectId[] confirmedVolunteers;
     private ObjectId[] requestedVolunteers;
 }
