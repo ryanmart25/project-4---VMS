@@ -63,7 +63,14 @@
 		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
 		    <version>3.2.3</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
 
+		<!-- https://mvnrepository.com/artifact/com.thetransactioncompany/cors-filter -->
+		<dependency>
+			<groupId>com.thetransactioncompany</groupId>
+			<artifactId>cors-filter</artifactId>
+			<version>3.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

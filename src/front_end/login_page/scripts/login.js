@@ -11,28 +11,27 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Please enter both username and password.');
             return;
         }
-
-        console.log(username);
-        console.log(password);
-
-        const usernames = ["Cindy", "Amy", "Joe"];
-       // const passwords = ["Cats", "Ice", "Lmao"];
-
-        let x = false;
-        Boolean(x);
-
-        for (let i = 0; i < usernames.length; i++) {
-            if (usernames[i] === username){
-                x = true;
-                break;
+        
+        // add api connection
+        url = `http://localhost:8080/api/v1/verify?username=${username}&password=${password}`;
+        
+        fetch(url, {
+            method: 'GET',
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Invalid Username Or Password');
             }
-        }
-           
-        if (!x) {
-            console.log("Invalid Username");
-        } else { 
-            console.log(username);
-        }
+        })
+        .then(data => {
+            console.log('Login succesful!', data);
+        })
+        .catch(error => {
+            console.error(error.message);
+            alert(error.message);
+        });
 
         document.querySelector('input[type="text"]').value = '';
         document.querySelector('input[type="password"]').value = '';

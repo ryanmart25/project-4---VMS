@@ -8,6 +8,10 @@ class VmsApplicationTests {
 
 	@Test
 	void contextLoads() {
+
+
+		//LoginService lis = new LoginService(new VolunteerRepository(), new EmployeeRepository());
+		//lis.addVolunteer("OG", "thisisnew@tester.org", "anewpw", "he/him");
 	}
 
 }
