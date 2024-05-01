@@ -13,14 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // add api connection
-        const url = `http://localhost:63342/api/v1/verify?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
+        url = `http://localhost:8080/api/v1/verify?username=${username}&password=${password}`;
         
         fetch(url, {
             method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({username, password})
         })
         .then(response => {
             if (response.ok) {
