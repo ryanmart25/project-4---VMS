@@ -9,7 +9,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     min-height: 100vh;
-    background: url(login_images/SacStateLassenHall.jpg);
+    background: url(../login_images/SacStateLassenHall.jpg);
     flex-wrap: wrap;
 }
 
