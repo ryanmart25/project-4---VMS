@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Video Carousel Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <div class="loginform">
+                <ul class="login-items">
+                    <li><input type="text" id="userField" /></li>
+                    <li><input type="password" id="passwordField" /></li>
+                    <li><button id="submit">Submit</button></li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+</body>
+<script>
+
+    baseurl = "http://localhost:8080/api/v1/verify?"
+    submitBtn = document.getElementById("submit")
+    usrField = document.getElementById("userField")
+    pasField = document.getElementById("passwordField")
+
+    submitBtn.addEventListener('click', submit)
+
+
+    function submit() {
+        //username and password are empty strings. Why???
+        //call an api endpoint that returns true/OK when
+        //username and password are valid. 
+
+
+        fetch(baseurl + "username=" + usrField.value + "&" + "password=" + pasField.value)
+            .then((res) => {
+                if (res.loggedIn == true) {
+                    console.log('Response was true')
+
+                }
+                else {
+                    console.log('response was false')
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
+</script>
+
+</html>
