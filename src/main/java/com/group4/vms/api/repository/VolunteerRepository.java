@@ -21,12 +21,12 @@ public class VolunteerRepository {
     private final String[] emails = {"example123@csus.edu"};
     private final String[] passwords = {"qwerty123"};
     public List<Volunteer> getLoginInfo(String email, String password){
-        List<Volunteer> volunteers = new ArrayList<>();
-        if(emails[0].equals(email) && passwords[0].equals(password)){
-            volunteers.add(new Volunteer(new ObjectId(), "John", email, password, "he/him"));
-        }
-        return volunteers;
-        //return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email).and("password").is(password)), Volunteer.class);
+        //List<Volunteer> volunteers = new ArrayList<>();
+        //if(emails[0].equals(email) && passwords[0].equals(password)){
+        //    volunteers.add(new Volunteer(new ObjectId(), "John", email, password, "he/him"));
+        //}
+        //return volunteers;
+        return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email).and("password").is(password)), Volunteer.class);
         //return this.mongoTemplate.find(Query.query(Criteria.where("email").is(email)), User.class);
     }
 
