@@ -6,6 +6,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.logging.LoggerGroups;
 import org.springframework.stereotype.Service;
 
 import com.group4.vms.api.model.Employee;
@@ -46,7 +47,7 @@ public class LoginService {
             volunteerRepository.newVol(nVol);
         }
 
-        return new LoginState(counter.incrementAndGet(), false);
+        return new LoginState(counter.incrementAndGet(), true);
     }
 
 
@@ -63,7 +64,7 @@ public class LoginService {
             employeeRepository.newEmp(nEmp);
         }
 
-        return new LoginState(counter.incrementAndGet(), false);
+        return new LoginState(counter.incrementAndGet(), true);
 
     }
     public LoginState verifyLogin(String email, String password){ //is this the correct way to implement this?
