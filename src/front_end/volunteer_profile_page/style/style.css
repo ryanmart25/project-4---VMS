@@ -1,0 +1,166 @@
+/* Global Styles */
+:root {
+    /* Colors */
+    --sac-state-dark-green: linear-gradient(to left, #043927, #043927),
+      linear-gradient(to left, #c4b581, #c4b581),
+      linear-gradient(to left, #5d4e3f, #5d4e3f),
+      linear-gradient(to left, #c6401d, #c6401d);
+    --sac-state-gold: #ebab21;
+    --sac-state-brown: #755627;
+    --sac-state-orange: #c6401d;
+    --sac-state-darker-green: #043927;
+    --fuschia-100: #ef5da8;
+    --iris-100: #5d5fef;
+  
+    /* Fonts */
+    --header-1-font-family: "WorkSans-Bold", sans-serif;
+    --header-1-font-size: 34px;
+    --header-2-font-family: "WorkSans-Bold", sans-serif;
+    --header-2-font-size: 20px;
+    --body-font-family: "WorkSans-Regular", sans-serif;
+    --body-font-size: 13px;
+  }
+  
+  body, * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-decoration: none;
+    appearance: none;
+    background: none;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* Volunteer Profile Styles */
+  .volunteer-profile {
+    background: var(--sac-state-dark-green);
+    position: relative;
+    overflow: hidden;
+    height: 1024px;
+  }
+  
+  .volunteer-banner {
+    width: 1229px;
+    height: 590px;
+    position: absolute;
+    left: 219px;
+    top: 554px;
+    object-fit: cover;
+  }
+  
+  .profile-picture {
+    border-radius: 50%;
+    width: 337px;
+    height: 337px;
+    position: absolute;
+    left: 360px;
+    top: 41px;
+    object-fit: cover;
+  }
+  
+  .badge {
+    width: 413px;
+    height: 73px;
+    position: absolute;
+    left: calc(50% - 322px);
+    top: 439px;
+  }
+  
+  .username {
+    color: #000;
+    font-family: "Aleo-Regular", sans-serif;
+    font-size: 35px;
+    position: absolute;
+    left: 512px;
+    top: 454px;
+  }
+  
+  .full-name {
+    color: #fff;
+    font-family: "Aleo-Regular", sans-serif;
+    font-size: 20px;
+    position: absolute;
+    left: 422px;
+    top: 404px;
+  }
+  
+  .hours-participated {
+    color: #fff;
+    font-family: "Aleo-Regular", sans-serif;
+    font-size: 20px;
+    position: absolute;
+    left: 881px;
+    top: 328px;
+  }
+  
+  .email {
+    color: #000;
+    font-family: "Aleo-Regular", sans-serif;
+    font-size: 35px;
+    position: absolute;
+    left: 901px;
+    top: 261px;
+  }
+  
+  .volunteer-actions {
+    position: absolute;
+    left: 867px;
+    top: 355px;
+  }
+  
+  .edit-profile {
+    color: #000;
+    font-family: "Aleo-Light", sans-serif;
+    font-size: 12px;
+    position: absolute;
+    left: 1257px;
+    top: 33px;
+  }
+  
+  .contact {
+    color: #fff;
+    font-family: "Aleo-Regular", sans-serif;
+    font-size: 20px;
+    position: absolute;
+    left: 881px;
+    top: 217px;
+  }
+  
+  .volunteer-navigation-ribbon {
+    background: #c4b581;
+    border-radius: 2px;
+    width: 221px;
+    height: 1024px;
+    position: absolute;
+    left: 0px;
+  }
+  
+  .nav-item {
+    border-radius: 10px;
+    width: 134px;
+    height: 134px;
+    position: absolute;
+    object-fit: cover;
+  }
+  
+  .nav-item:nth-child(1) {
+    top: 95px;
+    left: 44px;
+  }
+  
+  .nav-item:nth-child(2) {
+    top: 290px;
+    left: 44px;
+  }
+  
+  .nav-item:nth-child(3) {
+    top: 473px;
+    left: 44px;
+  }
+  
+  .nav-item:nth-child(4) {
+    top: 668px;
+    left: 44px;
+  }
+  
