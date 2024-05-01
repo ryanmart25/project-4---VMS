@@ -32,7 +32,7 @@ public class LoginController {
         LoginState state = this.service.verifyLogin(email, password);
         System.out.println(state);
         if(state.loggedIn()){
-            return new ResponseEntity<>(state, HttpStatus.FOUND);
+            return new ResponseEntity<>(state, HttpStatus.OK);
         }
         else{
             return new ResponseEntity<>(state,HttpStatus.NOT_FOUND);

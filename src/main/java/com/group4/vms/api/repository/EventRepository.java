@@ -41,7 +41,7 @@ public class EventRepository{
 
     public List<Event> getOtherEvents(ObjectId userId) {
         return this.mongoTemplate.find(Query.query(Criteria.where("confirmedVolunteers").elemMatch(Criteria.where("_id").ne(userId))), Event.class, "events");
-    
+        //return this.mongoTemplate.find(Query.query(Criteria.where("_id").is(65fdea7cbb89b710efa06419), Event.class, "events"));
     }
 
     public Event editEventName(ObjectId eventid, String newName){
