@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter;
 
 import java.util.concurrent.atomic.AtomicLong;
 @CrossOrigin(origins = "http://localhost:63342")
@@ -38,6 +39,38 @@ public class LoginController {
         }
 
 
+    }
+
+    @GetMapping("/api/v1/newVolunteer")
+    public ResponseEntity<LoginState> postNewVol(
+            @RequestParam(value = "email") String email,
+            @RequestParam(value = "password") String password,
+            @RequestParam(value = "name") String name,
+            @RequestParam(value = "pronouns") String pronouns) {
+
+        LoginState state = this.service.addVolunteer(name, email, password, pronouns);
+        if(state.loggedIn()){
+            return new ResponseEntity<>(state, HttpStatus.FOUND);
+        }
+        else{
+            return new ResponseEntity<>(state,HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/api/v1/newVolunteer")
+    public ResponseEntity<LoginState> postNewEmp(
+            @RequestParam(value = "email") String email,
+            @RequestParam(value = "password") String password,
+            @RequestParam(value = "name") String name,
+            @RequestParam(value = "pronouns") String pronouns) {
+
+        LoginState state = this.service.addEmployee(name, email, password, pronouns);
+        if(state.loggedIn()){
+            return new ResponseEntity<>(state, HttpStatus.FOUND);
+        }
+        else{
+            return new ResponseEntity<>(state,HttpStatus.NOT_FOUND);
+        }
     }
 /*
     @PostMapping("/api/v1/adduser{email}{password}{name}{pronouns}")
