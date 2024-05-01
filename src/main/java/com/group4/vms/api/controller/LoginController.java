@@ -57,7 +57,7 @@ public class LoginController {
         }
     }
 
-    @GetMapping("/api/v1/newVolunteer")
+    @GetMapping("/api/v1/newEmploee")
     public ResponseEntity<LoginState> postNewEmp(
             @RequestParam(value = "email") String email,
             @RequestParam(value = "password") String password,
