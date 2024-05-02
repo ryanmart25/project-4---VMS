@@ -94,31 +94,43 @@
             loadMoreBtn2.style.display = 'none';
          }
       };
+      const userId = '661edf0d7583161e07fc1528'; // Assume this is the user's ID
+
+      //Insert Array of Event IDS here, then take the length of the array and pass the number into the create boxes.
+
+      let otherEventIdsArray = []; // Array to store the IDs of other events
+
+
+      async function fetchOtherEventIds(userId) {
+          try {
+              const response = await fetch(`http://localhost:8080/api/v1/otherEvents?userid=${userId}`);
+              const events = await response.json();
+              const ids = events.map(event => event._id);
+              otherEventIdsArray = [...otherEventIdsArray, ...ids]; // Append fetched IDs to the array
+              return ids; // Return just the IDs fetched in this call
+          } catch (error) {
+              console.error('Error fetching other event IDs:', error);
+              return []; // Return an empty array in case of error
+          }
+      }
+
+      // Call this function to obtain IDs of other events
+
+      fetchOtherEventIds(userId)
+          .then(eventIds => {
+              console.log("Other Event IDs:", otherEventIdsArray); // Log the updated array of other event IDs
+          });
+
+
 
       // Used to test the dynamic boxes
       const numEvents = prompt("Enter the number of events:");
       createBoxes('event-container', 'box', parseInt(numEvents));
-      const numOtherEvents = prompt("Enter the number of other events:");
+      const numOtherEvents = otherEventIdsArray.length;
       createBoxes('other-event-container', 'box2', parseInt(numOtherEvents));
    </script>
 
-<script>
-   async function fetchEventIds(userId) {
-       const response = await fetch(`http://localhost:8080/api/v1/allEvents`);
-       const events = await response.json();
-       return events.map(event => event._id);
-   }
 
-   // Call this function to obtain all event IDs
-   // To see if it obtain eventIDs inspect element after running the html file and click console
-   const userId = '661edf0d7583161e07fc1528';
-   fetchEventIds(userId)
-       .then(eventIds => {
-           console.log("All Event IDs:", eventIds);
-       })
-       .catch(error => console.error('Error fetching event IDs:', error));
-
-</script>
 
 
 

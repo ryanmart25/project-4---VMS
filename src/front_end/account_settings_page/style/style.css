@@ -1,33 +1,32 @@
 body {
-    background: #f5f5f5;
     margin-top: 20px;
-}
-
-.header{
-
-    background-image: url(images/background2jpg.jpg);
+    background-image: url(../images/background2jpg.jpg);
     background-position: center;
     background-size: cover;
-
 }
 
-.side-nav{
+.header {
+    background-position: center;
+    background-size: cover;
+}
+
+.side-nav {
     width: 110px;
     height: 100%;
     position: fixed;
     top: 0;
     left: 0;
     padding: 30px 15px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(196, 182, 129, 0.712);
     backdrop-filter: blur(5px);
     transition: width 0.25s;
 }
 
-.user{
+.user {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width:60px;
+    width: 60px;
     font-size: 12px;
     padding: 10px;
     border-radius: 8px;
@@ -35,93 +34,96 @@ body {
     margin-right: auto;
     overflow: hidden;
 }
-.user div{
+
+.user div {
     display: none;
 }
-.user h2{
+
+.user h2 {
     font-size: 15px;
     font-weight: 600;
     white-space: nowrap;
-
 }
 
-.user-img{
-    width:40px;
+.user-img {
+    width: 40px;
     border-radius: 50%;
-    margin:auto;
+    margin: auto;
 }
 
-.logo-img{
-    width:80px;
+.logo-img {
+    width: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-ul{
+ul {
     list-style: none;
     padding: 0 15px;
 }
-ul li{
+
+ul li {
     margin: 40px 0;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-
 }
-ul li img{
+
+ul li img {
     width: 30px;
     margin-right: 0px;
 }
-ul li p{
+
+ul li p {
     white-space: nowrap;
     display: none;
 }
 
-.side-nav:hover{
+.side-nav:hover {
     width: 225px;
 }
 
-.side-nav:hover .user div{
+.side-nav:hover .user div {
     display: block;
 }
 
-.side-nav:hover .user{
+.side-nav:hover .user {
     width: 100%;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(5px);
 }
 
-.side-nav:hover .user-img{
-    margin: 0%;
-}
-.side-nav:hover .logo-img{
+.side-nav:hover .user-img {
     margin: 0%;
 }
 
-.side-nav:hover ul li p{
+.side-nav:hover .logo-img {
+    margin: 0%;
+}
+
+.side-nav:hover ul li p {
     display: block;
 }
 
-.side-nav:hover ul li img{
+.side-nav:hover ul li img {
     margin-right: 10px;
 }
 
-.side-nav:hover ul li{
+.side-nav:hover ul li {
     justify-content: flex-start;
 }
 
-
 .ui-w-80 {
-    width : 80px !important;
+    width: 80px !important;
     height: auto;
 }
 
 .btn-default {
     border-color: rgba(24, 28, 33, 0.1);
-    background  : rgba(0, 0, 0, 0);
-    color       : #4E5155;
+    background: white !important; /* Change background color to white */
+    color: #4E5155;
 }
 
 label.btn {
@@ -130,8 +132,8 @@ label.btn {
 
 .btn-outline-primary {
     border-color: #26B4FF;
-    background  : transparent;
-    color       : #26B4FF;
+    background: transparent;
+    color: #26B4FF;
 }
 
 .btn {
@@ -142,10 +144,9 @@ label.btn {
     color: #000000 !important;
 }
 
-
 .card {
     background-clip: padding-box;
-    box-shadow     : 0 1px 4px rgba(24, 28, 33, 0.012);
+    box-shadow: 0 1px 4px rgba(24, 28, 33, 0.012);
 }
 
 .row-bordered {
@@ -153,11 +154,11 @@ label.btn {
 }
 
 .account-settings-fileinput {
-    position  : absolute;
+    position: absolute;
     visibility: hidden;
-    width     : 1px;
-    height    : 1px;
-    opacity   : 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
 }
 
 .account-settings-links .list-group-item.active {
@@ -173,7 +174,7 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 }
 
 .light-style .account-settings-links .list-group-item {
-    padding     : 0.85rem 1.5rem;
+    padding: 0.85rem 1.5rem;
     border-color: rgba(24, 28, 33, 0.03) !important;
 }
 
@@ -182,7 +183,7 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 }
 
 .material-style .account-settings-links .list-group-item {
-    padding     : 0.85rem 1.5rem;
+    padding: 0.85rem 1.5rem;
     border-color: rgba(24, 28, 33, 0.03) !important;
 }
 
@@ -191,7 +192,7 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 }
 
 .dark-style .account-settings-links .list-group-item {
-    padding     : 0.85rem 1.5rem;
+    padding: 0.85rem 1.5rem;
     border-color: rgba(255, 255, 255, 0.03) !important;
 }
 
@@ -204,6 +205,22 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 }
 
 .light-style .account-settings-links .list-group-item {
-    padding     : 0.85rem 1.5rem;
+    padding: 0.85rem 1.5rem;
     border-color: rgba(24, 28, 33, 0.03) !important;
 }
+
+h4.font-weight-bold {
+    color: white;
+}
+
+.tab-pane {
+    height: 500px;
+    
+}
+
+.btn-primary {
+    background-color: #043927 !important; /* Change background color to #043927 */
+    border-color: #043927 !important; /* Change border color to #043927 */
+    color: white !important; /* Change text color to white */
+}
+
