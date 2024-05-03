@@ -164,6 +164,14 @@ button {
    transition: background-color 0.3s ease;
 }
 
+button.delete-event {
+   background-color: rgb(141, 0, 0);
+}
+
+button.delete-event:hover {
+   background-color: rgb(255, 0, 0);
+}
+
 button:hover {
    background-color: rgb(4, 57, 39);
 }
