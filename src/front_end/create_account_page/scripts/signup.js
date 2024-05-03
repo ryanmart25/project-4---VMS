@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         // add api connection 
 
+        
         console.log('Form submission successful');
         signupForm.submit(); 
     });
