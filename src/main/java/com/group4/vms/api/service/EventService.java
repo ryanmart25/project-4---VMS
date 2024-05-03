@@ -22,6 +22,8 @@ public class EventService { //TODO Revert, Implement lookup using simple FindAll
     }
 
     public List<Event> getByUserID(ObjectId userid){ //return events the user is signed up for.
+        //return array[List<Event>] array[0] list of events this user is signed up for
+        //list they are not signed up for.
         return eventRepository.getMyEvents(userid);
 
     }

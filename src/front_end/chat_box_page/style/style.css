@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(../images/SacStateSpringSquirrels.jpg);
+    flex-wrap: wrap;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+table {
+    width: 50%;
+    border-collapse: separate;
+    border-radius: 14px;
+    align-items: flex-start;
+}
+th, td {
+    border: 3px solid #043927;
+    padding: 11px;
+    text-align: center;
+    border-radius: 10px;
+}
+th {
+    background-color: rgb(196,182,129);
+}
+td {
+    background-color: rgb(196,182,129);
+}
+.edit {
+    background-color: rgb(196,182,129);
+}
+.action {
+    text-align: center;
+    padding: 5px 10px;
+    margin: 2px;
+    background-color: rgb(196,182,129);
+    border: 1px solid #043927;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.action button {
+    padding: 5px 10px;
+    margin: 2px;
+    background-color: rgb(196,182,129);
+    border: 1px #043927;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.more-messages {
+    background-color: rgb(196,182,129);;  
+    color: #043927; 
+    border: 3px solid #043927;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.banner {
+    width: 100%;
+    background-color: #043927;
+    color: white;
+    text-align: center; 
+    padding: 10px; 
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 90px;
+}

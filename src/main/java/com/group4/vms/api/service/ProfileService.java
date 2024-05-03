@@ -33,4 +33,15 @@ public class ProfileService {
     public String[] getInfo(String name) {
         return this.profileRepository.getVolunteerProfileInfoByName(name);
     }
+//for employees
+    public String[] setEmployeeInfo(String pronouns, String name, ObjectId id) {
+        return this.profileRepository.setEmployeeInfo(id, pronouns, name);
+    }
+
+
+    //for volunteers
+    public String[] setVolunteerInfo(ObjectId id, String pronouns, String name) {
+    //need to set up regex to figure out if this is a name or
+   return this.profileRepository.setVolunteerInfo(id,pronouns, name );
+    }
 }
