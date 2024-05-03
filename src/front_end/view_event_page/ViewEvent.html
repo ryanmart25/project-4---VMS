@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Details</title>
-        <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
     <div class="side-nav">
@@ -27,41 +27,27 @@
                <li><a href="home.html"><img src="images/Project4Logo.png" class="logo-img"></a></li>
            </div>
        </ul>
-      </div>
+    </div>
 
     <div class="container">
         <h1>Event Details</h1>
         <div class="event-details">
             <h2 id="event-title">Event Title</h2>
-            <p><strong>Start Time:</strong> <span id="start-time">Event Start Time</span></p>
-            <p><strong>End Time:</strong> <span id="end-time">Event End Time</span></p>
-            <p><strong>Manager:</strong> <span id="event-manager">Event Manager</span></p>
-            <p><strong>Location:</strong> <span id="event-location">Event Location</span></p>
-            <p><strong>Description:</strong> <span id="event-description">Event Description</span></p>
+            <p><strong>Start Time:</strong> <span id="start-time">May 1, 2024 10:00 AM</span></p>
+            <p><strong>End Time:</strong> <span id="end-time">May 1, 2024 12:00 PM</span></p>
+            <p><strong>Manager:</strong> <span id="event-manager">John Doe</span></p>
+            <p><strong>Location:</strong> <span id="event-location">Guy West Bridge</span></p>
+            <p><strong>Description:</strong> <span id="event-description">Description: Lorem  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Cras semper auctor  neque vitae tempus quam pellentesque nec nam. Dui sapien eget mi proin  sed libero. Pretium viverra suspendisse potenti</span></p>
         </div>
+        <button id="signup-button" class="signup-button" onclick="sendSignupRequest()">Sign Up</button>
     </div>
 
     <script>
-
-        window.onload = function() {
-   
-            var eventData = {
-                title: "River Clean Up",
-                startTime: "May 1, 2024 10:00 AM",
-                endTime: "May 1, 2024 12:00 PM",
-                manager: "John Doe",
-                description: "Description: Lorem  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Cras semper auctor  neque vitae tempus quam pellentesque nec nam. Dui sapien eget mi proin  sed libero. Pretium viverra suspendisse potenti ",
-                location: "Guy West Bridge"
-            };
-
-            // Update HTML elements with event details
-            document.getElementById('event-title').innerText = eventData.title;
-            document.getElementById('start-time').innerText = eventData.startTime;
-            document.getElementById('end-time').innerText = eventData.endTime;
-            document.getElementById('event-manager').innerText = eventData.manager;
-            document.getElementById('event-description').innerText = eventData.description;
-            document.getElementById('event-location').innerText = eventData.location;
-        };
+        function sendSignupRequest() {
+            var signupButton = document.getElementById('signup-button');
+            signupButton.innerText = "Sign Up Request Sent";
+            signupButton.disabled = true;
+        }
     </script>
 </body>
 </html>
