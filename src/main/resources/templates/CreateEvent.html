@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <link rel="stylesheet" href="CreateEvent_style/style.css">
+</head>
+<body>
+    <div class="side-nav">
+        <!-- Sidebar content -->
+        <div class="user">
+           <img src="CreateEvent_images/ProfilePic.png" class="user-img">
+           <div>
+               <h2>Dylan Prosser</h2>
+               <p>dprosser@csus.edu</p>
+           </div>
+       </div>
+       <ul>
+           <li><a href="AdminDashboard.html"><img src="CreateEvent_images/DashBoard.png"></a><p>Dashboard</p></li>
+           <li><a href="messages.html"><img src="CreateEvent_images/Mail.png"></a><p>Messages</p></li>
+           <li><img src = "CreateEvent_images/TimeSheet.png"><p>Timesheet</p></li>
+           <li><a href="AccountSettings.html"><img src="CreateEvent_images/settings.png"></a><p>Settings</p></li>
+       </ul>
+          
+       <ul>
+           <div class="logo">
+               <li><a href="home.html"><img src="CreateEvent_images/Project4Logo.png" class="logo-img"></a></li>
+           </div>
+       </ul>
+    </div>
+
+    <div class="container">
+        <h1>Event Details</h1>
+        <form id="event-form">
+            <div class="event-details">
+                <div class="form-group">
+                    <label for="event-title">Event Title:</label>
+                    <input type="text" id="event-title" name="event-title" value="">
+                </div>
+                <div class="form-group">
+                    <label for="start-time">Start Time:</label>
+                    <input type="text" id="start-time" name="start-time" value="">
+                </div>
+                <div class="form-group">
+                    <label for="end-time">End Time:</label>
+                    <input type="text" id="end-time" name="end-time" value="">
+                </div>
+                <div class="form-group">
+                    <label for="event-manager">Manager:</label>
+                    <input type="text" id="event-manager" name="event-manager" value="">
+                </div>
+                <div class="form-group">
+                    <label for="event-location">Location:</label>
+                    <input type="text" id="event-location" name="event-location" value="">
+                </div>
+                <div class="form-group">
+                    <label for="event-description">Description:</label>
+                    <textarea id="event-description" name="event-description"></textarea>
+                </div>
+
+                <div class="button-group" style="margin-top: 10px;">
+                    <button type="button" onclick="window.location.href = 'AdminDashboard.html'">Save Changes</button>
+                </div>
+                
+                
+                
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

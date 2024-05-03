@@ -1,0 +1,186 @@
+/* Your existing CSS for the side navigation */
+*{
+  font-family: 'Montserrat', sans-serif;
+  margin:0; padding:0;
+  box-sizing: border-box;
+  outline: none; border:none;
+  text-decoration: none;
+  transition: all .2s linear;
+}
+
+.side-nav{
+ width: 110px;
+ height: 100%;
+ position: fixed;
+ top: 0;
+ left: 0;
+ padding: 30px 15px;
+ background: rgba(196, 182, 129, 0.712);
+ backdrop-filter: blur(5px);
+ transition: width 0.25s;
+ color: rgb(0, 0, 0);
+}
+
+.user{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ width:60px;
+ font-size: 12px;
+ padding: 10px;
+ border-radius: 8px;
+ margin-left: auto;
+ margin-right: auto;
+ overflow: hidden;
+}
+.user div{
+ display: none;
+}
+.user h2{
+ font-size: 15px;
+ font-weight: 600;
+ white-space: nowrap;
+
+}
+
+.user-img{
+ width:40px;
+ border-radius: 50%;
+ margin:auto;
+}
+
+.logo-img{
+ width:80px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+ul{
+ list-style: none;
+ padding: 0 15px;
+}
+ul li{
+ margin: 40px 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+
+}
+ul li img{
+ width: 30px;
+ margin-right: 0px;
+}
+ul li p{
+ white-space: nowrap;
+ display: none;
+}
+
+.side-nav:hover{
+ width: 225px;
+}
+
+.side-nav:hover .user div{
+ display: block;
+}
+
+.side-nav:hover .user{
+ width: 100%;
+ background: rgba(255, 255, 255, 0.2);
+ backdrop-filter: blur(5px);
+}
+
+.side-nav:hover .user-img{
+ margin: 0%;
+}
+.side-nav:hover .logo-img{
+ margin: 0%;
+}
+
+.side-nav:hover ul li p{
+ display: block;
+}
+
+.side-nav:hover ul li img{
+ margin-right: 10px;
+}
+
+.side-nav:hover ul li{
+ justify-content: flex-start;
+}
+
+/* Your existing CSS for the content area */
+.content {
+  margin-left: 150px;
+  padding: 30px; 
+}
+
+
+
+
+h1, h2, p, .label {
+  color: #000000; /* Change text color to white */
+}
+
+.detail {
+  color: #000; /* Keep text color of details black */
+}
+
+.username, .name, .contact {
+  color: #ffffff; /* Change text color to white */
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.profile-info {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  display: flex;
+  align-items: flex-start;
+}
+
+.profile-image {
+  width: 50vw; /* Add margin to create space */
+}
+
+.profile-image img {
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+}
+
+.profile-details {
+  flex: 1;
+}
+
+
+.detail-box {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  width: 200%; /* Double the width */
+}
+
+.detail-box p {
+  margin: 0;
+  font-size: 18px;
+}
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('../Profile_images/profilebackground.png');
+  background-size: cover;
+  background-position: center;
+}
