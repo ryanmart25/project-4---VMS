@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.*;
 
 @Data
-@Document(collection = "timesheet")
+@Document(collection = "time_volunteered")
 public class Entry {
     @Id
     ObjectId id;

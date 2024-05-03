@@ -1,5 +1,6 @@
 package com.group4.vms.api.service;
 
+import com.group4.vms.api.model.Employee;
 import com.group4.vms.api.model.Entry;
 import com.group4.vms.api.repository.TimesheetRepository;
 import org.bson.json.JsonObject;
@@ -18,13 +19,18 @@ public class TimesheetService {
         return timesheetRepository.getAllEntries();
     }
 
-    public HttpStatus postEntries(JsonObject requestBody) {
+    public HttpStatus postEntries(List<Entry> entries) {
         return HttpStatus.NOT_IMPLEMENTED;
     }
-    public HttpStatus postEntry(JsonObject requestBody){
+    public HttpStatus postEntry(Entry entry){
         return HttpStatus.NOT_IMPLEMENTED;
     }
-    public HttpStatus patchEntries(JsonObject requestBody){
+    public HttpStatus patchEntries(List<Entry> entries){
         return HttpStatus.NOT_IMPLEMENTED;
+    }
+
+    public Employee saveEntry(Entry entry) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'saveEntry'");
     }
 }

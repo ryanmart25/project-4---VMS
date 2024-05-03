@@ -1,5 +1,6 @@
 package com.group4.vms.api.controller;
 
+import com.group4.vms.api.model.Employee;
 import com.group4.vms.api.model.Entry;
 import com.group4.vms.api.service.TimesheetService;
 import org.bson.json.JsonObject;
@@ -20,10 +21,16 @@ public class TimesheetController {
     //methods
     @GetMapping("/api/v1/timesheet/getAllEntries")
     public ResponseEntity<List<Entry>> getAllEntries(){
+        List<Entry> entries = this.timesheetService.getAllEntries();
         return ResponseEntity.ok(this.timesheetService.getAllEntries());
     }
     @PostMapping("/api/v1/timesheet/postEntries")
-    public HttpStatus postEntries(@RequestBody JsonObject requestBody){
-        return this.timesheetService.postEntries(requestBody);
+    public  ResponseEntity<Employee> postEntries(@RequestBody Entry entry){
+        Employee savedEmployee = this.timesheetService.saveEntry(entry);
+        if (savedEmployee != null) {
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedEmployee);
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 }

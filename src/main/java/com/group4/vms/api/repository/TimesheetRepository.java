@@ -59,6 +59,20 @@ public class TimesheetRepository {
             mongoTemplate.updateMulti(query, update, Entry.class);
         }
     }
+    private static TimesheetRepository instance;
+    private TimesheetRepository() {
+    }
+    public static synchronized TimesheetRepository getInstance() {
+        
+        if (instance == null) {
+            instance = new TimesheetRepository();
+        }
+        return instance;
+    }
+
+    public void save(Entry entry) {
+       throw new UnsupportedOperationException("Unimplemented method 'save'");
+    }
     
 }
 
