@@ -30,17 +30,11 @@ public class EventRepository{
     }
 
     public List<Event> getMyEvents(ObjectId userId) {
-        return this.mongoTemplate.find(Query.query(Criteria.where("confirmedVolunteers").elemMatch(Criteria.where("_id").is(userId))), Event.class, "events");
-    
-    }
-
-    public List<Event> getMyEvents(String fname, String lname) {
-        return this.mongoTemplate.find(Query.query(Criteria.where("confirmedVolunteers").elemMatch(Criteria.where("name").is(fname+" "+lname))), Event.class, "events");
-    
+        return this.mongoTemplate.find(Query.query(Criteria.where("confirmedVolunteers").in(userId)), Event.class, "events");
     }
 
     public List<Event> getOtherEvents(ObjectId userId) {
-        return this.mongoTemplate.find(Query.query(Criteria.where("confirmedVolunteers").elemMatch(Criteria.where("_id").ne(userId))), Event.class, "events");
+        return this.mongoTemplate.find(Query.query(Criteria.where("confirmedVolunteers").in(userId)), Event.class, "events");
     }
 
     public Event editEventName(ObjectId eventid, String newName){
@@ -179,61 +173,55 @@ public class EventRepository{
 
         }
     }
-/*    
-    public Event removeVol(ObjectId eventid, ObjectId volunteerid){
-        Query existQuery = new Query();
-        existQuery.addCriteria(Criteria.where("_id").is(eventid));
-        Query volQuery = new Query();
-        volQuery.addCriteria(Criteria.where("confirmedVolunteers").elemMatch(Criteria.where("_id").ne(volunteerid)));
 
-        Update eventUpdate = new Update().set("", volunteerid);
+    public Event removeVol(ObjectId eventid, ObjectId volunteerid){
+        Query volQuery = new Query();
+        volQuery.addCriteria(Criteria.where("_id").is(eventid).and("confirmedVolunteers").in(volunteerid));
+
+        Update eventUpdate = new Update().pull("confirmedVolunteers", volunteerid);
 
         Event err = new Event();
 
-        if(!this.mongoTemplate.exists(existQuery, Event.class, "events")){
-            err.setName("No Event Found");
+        if(this.mongoTemplate.findOne(volQuery, Event.class, "events") == null){
+            err.setName("Volunteer not found in present Event");
             return err;
         }
-        if(!this.mongoTemplate.exists(volQuery))
-        
-            return this.mongoTemplate.findAndModify(existQuery, eventUpdate, new FindAndModifyOptions().returnNew(true), Event.class, "events");
+        return this.mongoTemplate.findAndModify(volQuery, eventUpdate, new FindAndModifyOptions().returnNew(true), Event.class, "events");
 
         
     }
 
     public Event denyVol(ObjectId eventid, ObjectId volunteerid){
-        Query existQuery = new Query();
-        existQuery.addCriteria(Criteria.where("_id").is(eventid));
+        Query volQuery = new Query();
+        volQuery.addCriteria(Criteria.where("_id").is(eventid).and("requestedVolunteers").in(volunteerid));
 
-        Update eventUpdate = new Update().set("", volunteerid);
+        Update eventUpdate = new Update().pull("requestedVolunteers", volunteerid);
 
         Event err = new Event();
 
-        if(!this.mongoTemplate.exists(existQuery, Event.class, "events")){
-            err.setName("No Event Found");
+        if(this.mongoTemplate.findOne(volQuery, Event.class, "events") == null){
+            err.setName("Volunteer not found in present Event");
             return err;
         }
-        else {
-            return this.mongoTemplate.findAndModify(existQuery, eventUpdate, new FindAndModifyOptions().returnNew(true), Event.class, "events");
+        return this.mongoTemplate.findAndModify(volQuery, eventUpdate, new FindAndModifyOptions().returnNew(true), Event.class, "events");
 
-        }
+        
     }
 
     public Event acceptVol(ObjectId eventid, ObjectId volunteerid){
-        Query existQuery = new Query();
-        existQuery.addCriteria(Criteria.where("_id").is(eventid));
+        Query volQuery = new Query();
+        volQuery.addCriteria(Criteria.where("_id").is(eventid).and("requestedVolunteers").in(volunteerid));
 
-        Update eventUpdate = new Update().set("", volunteerid);
+        Update eventUpdate = new Update().push("requestedVolunteers", volunteerid);
 
         Event err = new Event();
 
-        if(!this.mongoTemplate.exists(existQuery, Event.class, "events")){
-            err.setName("No Event Found");
+        if(this.mongoTemplate.findOne(volQuery, Event.class, "events") == null){
+            err.setName("Volunteer not found in present Event");
             return err;
         }
-        else {
-            return this.mongoTemplate.findAndModify(existQuery, eventUpdate, new FindAndModifyOptions().returnNew(true), Event.class, "events");
+        return this.mongoTemplate.findAndModify(volQuery, eventUpdate, new FindAndModifyOptions().returnNew(true), Event.class, "events");
 
-        }
-    }*/
+        
+    }
 }
