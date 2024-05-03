@@ -34,7 +34,7 @@ public class LoginService {
         this.employeeRepository = employeeRepository;
     }
     //methods
-    public LoginState addVolunteer(String name, String email, String password, String pronouns){ // TODO See if there is a better way to search the database for the Username & pAssword
+    public LoginState addVolunteer( String email, String password){ // TODO See if there is a better way to search the database for the Username & pAssword
         //1. check for account
         //2. add account to database
         //log the user in
@@ -43,7 +43,7 @@ public class LoginService {
             if(v.getEmail().equals(email)){
                 return new LoginState(counter.incrementAndGet(), false);
             }
-            Volunteer nVol = new Volunteer(new ObjectId(), name, email, password, pronouns);
+            Volunteer nVol = new Volunteer(new ObjectId(), "N/A", email, password, "N/A");
             volunteerRepository.newVol(nVol);
         }
 
@@ -51,7 +51,7 @@ public class LoginService {
     }
 
 
-    public LoginState addEmployee(String name, String email, String password, String pronouns){ // TODO See if there is a better way to search the database for the Username & pAssword
+    public LoginState addEmployee(String email, String password){ // TODO See if there is a better way to search the database for the Username & pAssword
         //1. check for account
         //2. add account to database
         //log the user in
@@ -60,7 +60,7 @@ public class LoginService {
             if(e.getEmail().equals(email)){
                 return new LoginState(counter.incrementAndGet(), false);
             }
-            Employee nEmp = new Employee(new ObjectId(), name, email, password, pronouns, true, false);
+            Employee nEmp = new Employee(new ObjectId(), "N/A", email, password, "N/A", true, false);
             employeeRepository.newEmp(nEmp);
         }
 
