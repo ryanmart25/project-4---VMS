@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class WebsiteDashboardController {
 
-    @GetMapping("/volunteerdashboard")
+    @GetMapping("/VolunteerDashboard")
     String getDashboardPage(){
-        return "volunteerdashboard";
+        return "VolunteerDashboard";
     }
-    @GetMapping("/admindashboard")
+    @GetMapping("/AdminDashboard")
     String getAdminDashboardPage(){
-        return "admindashboard";
+        return "AdminDashboard";
     }
 
 }
