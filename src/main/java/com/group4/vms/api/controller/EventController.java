@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -28,5 +29,42 @@ public class EventController {
         
         return this.eventService.getByUserID(new ObjectId(userid));
     }
+    @GetMapping("/api/editEvent")
+    public Event editEvent(
+        @RequestParam(value = "id", required = true) ObjectId id,
+        @RequestParam(value = "title", required = false) String title,
+        @RequestParam(value = "start", required = false) String start,
+        @RequestParam(value = "end", required = false) String end,
+        @RequestParam(value = "duration", required = false) Double duration,
+        @RequestParam(value = "date", required = false) Date date,
+        @RequestParam(value = "manager", required = false) String manager,
+        @RequestParam(value = "location", required = false) String location,
+        @RequestParam(value = "description", required = false) String description){
+            if (title != null){
+                this.eventService.editEventName(id, title);
+            }
+            if (start != null){
+                this.eventService.editEventStart(id, start);
+            }
+            if (end != null){
+                this.eventService.editEventEnd(id, end);
+            }
+            if (duration != null){
+                this.eventService.editEventLen(id, duration);
+            }
+            if (date != null){
+                this.eventService.editEventDate(id, date);
+            }
+            if (manager != null){
+                this.eventService.editEventManager(id, manager);
+            }
+            if (location != null){
+                this.eventService.editEventLocation(id, location);
+            }
+            if (description != null){
+                this.eventService.editEventDescription(id, description);
+            }
+            return this.eventService.getEventInfo(id);
+        }
 
 }

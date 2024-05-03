@@ -146,12 +146,12 @@ h1, h2, p, .label {
 }
 
 .profile-image {
-  width: 50vw; /* Add margin to create space */
+  width: 30vw; /* Add margin to create space */
 }
 
 .profile-image img {
-  width: 450px;
-  height: 450px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #fff;
@@ -164,16 +164,16 @@ h1, h2, p, .label {
 
 .detail-box {
   background-color: #ffffff;
-  padding: 20px;
+  padding: 12px;
   border-radius: 8px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
-  width: 200%; /* Double the width */
+  margin-bottom: 20px;
+  width: 150%; /* Double the width */
 }
 
 .detail-box p {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 

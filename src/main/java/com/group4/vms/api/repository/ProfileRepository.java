@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.servlet.resource.CachingResourceTransformer;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -97,4 +97,36 @@ public class ProfileRepository {
         else
             return new String[]{"N/A", "N/A", "N/A", "N/A"};
     }
+
+    public String[] setEmployeeInfo(ObjectId id, String pronouns, String name) {
+        Query query = new Query(Criteria.where("_id").is(id));
+        Update update = new Update();
+        update.set("pronouns", pronouns);
+        update.set("name", name);
+
+        Employee b = this.mongoTemplate.findAndModify(query, update,Employee.class, "employees");
+        if(b!= null){
+            return b.toArray();
+        }
+        else{
+            return new String[]{"N/A","N/A","N/A","N/A","N/A","N/A"};
+        }
+
+    }
+    public String[] setVolunteerInfo(ObjectId id,  String pronouns, String name) {
+        Query query = new Query(Criteria.where("_id").is(id));
+        Update update = new Update();
+        update.set("pronouns", pronouns);
+        update.set("name", name);
+
+    Volunteer b = this.mongoTemplate.findAndModify(query, update,Volunteer.class, "volunteers");
+        if(b!= null){
+            return b.toArray();
+        }
+        else{
+            return new String[]{"N/A","N/A","N/A","N/A","N/A","N/A"};
+        }
+    }
+
 }
+

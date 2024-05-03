@@ -65,6 +65,24 @@ public class Employee {
         this.approved = approved;
     }
 
+    public String[] toArray() {
+    String[] arr = new String[6];
+    arr[0] = this.getName();
+    arr[1] = this.email;
+    arr[2] = this.getPassword();
+    arr[3] = this.getPronouns();
+    arr[4] = booleanToString(this.isApproved());
+    arr[5] = booleanToString(this.isEmployee);
+    return arr;
+    }
+    private static String booleanToString(boolean b){
+        if(b){
+            return "true";
+        }
+        else
+            return "false";
+    }
+
     //private boolean adminPrivs;
 
 
