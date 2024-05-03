@@ -19,8 +19,8 @@ public class EventRepository{
     @Autowired
     MongoTemplate mongoTemplate;
 
-    public List<Event> getEventInfo(ObjectId id){
-        return this.mongoTemplate.find(Query.query(Criteria.where("_id").is(id)), Event.class);
+    public Event getEventInfo(ObjectId id){
+        return this.mongoTemplate.findOne(Query.query(Criteria.where("_id").is(id)), Event.class);
 
     }
 
@@ -223,5 +223,25 @@ public class EventRepository{
         return this.mongoTemplate.findAndModify(volQuery, eventUpdate, new FindAndModifyOptions().returnNew(true), Event.class, "events");
 
         
+    }
+
+    public Event removeEvent(ObjectId eventid){
+        if(!this.mongoTemplate.exists(Query.query(Criteria.where("_id").is(eventid)), Event.class, "events")){
+            Event err = new Event();
+            err.setName("No Event Found");
+            return err;
+        }
+        return this.mongoTemplate.findAndRemove(Query.query(Criteria.where("_id").is(eventid)), Event.class, "events");
+
+    }
+
+    public Event addEvent(Event e){
+        if(this.mongoTemplate.exists(Query.query(Criteria.where("_id").is(e.getId())), Event.class, "events")){
+            Event err = new Event();
+            err.setName("No Event Found");
+            return err;
+        }
+        return this.mongoTemplate.insert(e, "events");
+
     }
 }
