@@ -27,7 +27,7 @@ public class EventController {
     public List<Event> getUsersEvents(
             @RequestParam(value = "userid", defaultValue = "00000000") String userid
             ) {
-        
+
         return eventService.getByUserID(new ObjectId(userid));
     }
 

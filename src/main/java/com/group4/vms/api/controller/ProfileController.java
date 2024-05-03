@@ -5,10 +5,7 @@ import com.group4.vms.api.service.ProfileService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -26,6 +23,34 @@ public class ProfileController {
     //constructors
     public ProfileController(ProfileService service){ //basic dependency injection.
         this.profileService = service;
+    }
+
+@PostMapping("/api/v1/setVolunteerInfo")
+public ResponseEntity<String[]> setVolunteerInfo(
+        @RequestParam(value="pronouns", defaultValue = "N/A") String pronouns,
+        @RequestParam(value="newname",  defaultValue = "N/A") String name,
+        @RequestParam(value = "id") ObjectId id
+
+){
+        String[] ret = this.profileService.setVolunteerInfo(id, name, pronouns);
+    if(arrayIsEmpty(ret, "N/A"))
+        return ResponseEntity.notFound().build();
+    else
+        return ResponseEntity.ok(ret);
+}
+    @PostMapping("/api/v1/setEmployeeInfo")
+    public ResponseEntity<String[]> setEmployeeInfo(
+            @RequestParam(value="pronouns", defaultValue = "N/A") String pronouns,
+            @RequestParam(value="newname",  defaultValue = "N/A") String name,
+            @RequestParam(value = "id") ObjectId id
+
+    ){
+
+        String[] ret = this.profileService.setEmployeeInfo(pronouns, name, id);
+        if(arrayIsEmpty(ret, "N/A"))
+            return ResponseEntity.notFound().build();
+        else
+            return ResponseEntity.ok(ret);
     }
 
 
@@ -71,5 +96,8 @@ public class ProfileController {
             return false;
         }
         return !name.contains("1234567890-=_+`~!@#$%^&*(),./<>?;:'\"[]{}\\|");
+    }
+    private boolean arrayIsEmpty(String[] array, String emptySignifier){
+        return array[0].equals(emptySignifier);
     }
 }
