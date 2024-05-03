@@ -43,9 +43,10 @@ body {
 .input-box input::placeholder {
     color: #043927;
 }
+
 .wrapper .btn {
-    width: 100%;
-    height: 30px;
+    width: calc(100% - 80px); /* Adjust the width as needed */
+    height: 50px; /* Adjust the height to match the input boxes */
     background: #043927;
     border: 1px solid;
     outline: none;
@@ -53,9 +54,14 @@ body {
     box-shadow: 0 0 10px black .1;
     font-size: 20px;
     font-weight: 200;
-    margin: 10px;
-    color:rgb(196,182,129);
+    margin: 25px auto; /* Adjust the margin to center the button horizontally */
+    color: rgb(196, 182, 129);
+    display: flex; /* Use flexbox for vertical centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
+
+
 .wrapper .loginlink {
     font-size: 18px;
     text-align: center;
