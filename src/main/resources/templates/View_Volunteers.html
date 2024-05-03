@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Volunteers</title>
+    <link rel="stylesheet" href="ViewVolunteers_style/style.css"> <!-- Link to external stylesheet -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Manage Volunteers</h1>
+
+        <h2>Users Requested to Sign Up</h2>
+        <ul class="user-list" id="requested-users">
+            <!-- Sample requested users -->
+            <li class="user">
+                <span>John Doe</span>
+                <div class="actions">
+                    <button onclick="approveRequest('John Doe')">Approve</button>
+                    <button onclick="denyRequest(this)">Deny</button>
+                </div>
+            </li>
+            <li class="user">
+                <span>Jane Smith</span>
+                <div class="actions">
+                    <button onclick="approveRequest('Jane Smith')">Approve</button>
+                    <button onclick="denyRequest(this)">Deny</button>
+                </div>
+            </li>
+        </ul>
+
+        <h2>Approved Requests</h2>
+        <ul class="user-list" id="signed-up-users">
+            <!-- Sample signed-up users -->
+            <li class="user">
+                <span>Michael Johnson</span>
+                <div class="actions">
+                    <button onclick="removeUser(this)">Remove</button>
+                </div>
+            </li>
+            <li class="user">
+                <span>Sarah Brown</span>
+                <div class="actions">
+                    <button onclick="removeUser(this)">Remove</button>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Return to Event Details Button -->
+        <button class="return-button" onclick="window.location.href = 'EditEvent.html'">Return to Event Details</button>
+
+    </div>
+
+    <script>
+        // Function to move user to signed-up section
+        function approveRequest(button) {
+            var listItem = button.closest('.user');
+            var username = listItem.querySelector('span').textContent;
+            listItem.remove();
+            var signedUpList = document.getElementById('signed-up-users');
+            var newUser = document.createElement('li');
+            newUser.classList.add('user');
+            newUser.innerHTML = `
+                <span>${username}</span>
+                <div class="actions">
+                    <button onclick="removeUser(this)">Remove</button>
+                </div>
+            `;
+            signedUpList.appendChild(newUser);
+        }
+
+        // Function to remove user from requested list
+        function denyRequest(button) {
+            var listItem = button.closest('.user');
+            listItem.remove();
+        }
+
+        // Function to remove signed-up user
+        function removeUser(button) {
+            var listItem = button.closest('.user');
+            listItem.remove();
+        }
+
+        // Function to return to event details
+        function returnToEventDetails() {
+            // Redirect or perform action to return to event details
+            alert("Returning to event details...");
+        }
+    </script>
+</body>
+</html>

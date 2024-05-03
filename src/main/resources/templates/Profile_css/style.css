@@ -1,4 +1,3 @@
-/* Your existing CSS for the side navigation */
 *{
   font-family: 'Montserrat', sans-serif;
   margin:0; padding:0;
@@ -110,7 +109,7 @@ ul li p{
  justify-content: flex-start;
 }
 
-/* Your existing CSS for the content area */
+
 .content {
   margin-left: 150px;
   padding: 30px; 
@@ -120,15 +119,15 @@ ul li p{
 
 
 h1, h2, p, .label {
-  color: #000000; /* Change text color to white */
+  color: #000000;
 }
 
 .detail {
-  color: #000; /* Keep text color of details black */
+  color: #000; 
 }
 
 .username, .name, .contact {
-  color: #ffffff; /* Change text color to white */
+  color: #ffffff;
 }
 
 .label {
@@ -146,7 +145,7 @@ h1, h2, p, .label {
 }
 
 .profile-image {
-  width: 50vw; /* Add margin to create space */
+  width: 50vw;
 }
 
 .profile-image img {
@@ -180,7 +179,7 @@ h1, h2, p, .label {
 
 body {
   font-family: Arial, sans-serif;
-  background-image: url('../images/profilebackground.png');
+  background-image: url('../Profile_images/profilebackground.png');
   background-size: cover;
   background-position: center;
 }
