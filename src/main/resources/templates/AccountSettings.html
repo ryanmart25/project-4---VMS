@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Settings</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="AccountSettings_style/style.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -16,23 +16,22 @@
     <div class="header">
         <div class="side-nav">
             <div class="user">
-                <img src="images/ProfilePic.png" class="user-img">
+                <img src="AccountSettings_images/ProfilePic.png" class="user-img">
                 <div>
                     <h2>Dylan Prosser</h2>
                     <p>dprosser@csus.edu</p>
                 </div>
             </div>
             <ul>
-                <li><img src = "images/Volunteer.png"><p>Dashboard</p></li>
-                <li><img src = "images/mail.jpg"><p>Messages</p></li>
-                <li><img src = "images/settings.png"><p>Settings</p></li>
-                
+                <li><a href="AdminDashboard.html"><img src="AdminDash_images/DashBoard.png"></a><p>Dashboard</p></li>
+                <li><a href="messages.html"><img src="AdminDash_images/Mail.png"></a><p>Messages</p></li>
+                <li><a href="time_sheet.html"><img src = "AdminDash_images/TimeSheet.png"></a><p>Timesheet</p></li>
+                <li><a href="AccountSettings.html"><img src="AdminDash_images/settings.png"></a><p>Settings</p></li>
             </ul>
     
             <ul>
-                <li><img src = "images/logout.png"><p>Log out</p></li>
                 <div class="logo">
-                    <li><img src = "images/Project4Logo.png" class = "logo-img"></li>
+                    <li><img src = "AccountSettings_images/Project4Logo.png" class = "logo-img"></li>
                 </div>
                 
             </ul>
@@ -63,7 +62,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade active show" id="account-general">
                             <div class="card-body media align-items-center">
-                                <img src="Images/ProfilePic.png" alt class="d-block ui-w-80">
+                                <img src="AccountSettings_images/ProfilePic.png" alt class="d-block ui-w-80">
                                 <div class="media-body ml-4">
                                     <label class="btn btn-outline-primary">
                                         Upload new photo

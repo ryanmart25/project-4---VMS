@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <link rel="stylesheet" href="EditEvent_style/style.css">
+</head>
+<body>
+    <div class="side-nav">
+        <!-- Sidebar content -->
+        <div class="user">
+           <img src="EditEvent_images/ProfilePic.png" class="user-img">
+           <div>
+               <h2>Dylan Prosser</h2>
+               <p>dprosser@csus.edu</p>
+           </div>
+       </div>
+       <ul>
+           <li><a href="AdminDashboard.html"><img src="EditEvent_images/DashBoard.png"></a><p>Dashboard</p></li>
+           <li><a href="messages.html"><img src="EditEvent_images/Mail.png"></a><p>Messages</p></li>
+           <li><a href="TimeSheet.html"></a><img src = "EditEvent_images/TimeSheet.png"><p>Timesheet</p></li>
+           <li><a href="settings.html"><img src="EditEvent_images/settings.png"></a><p>Settings</p></li>
+       </ul>
+          
+       <ul>
+           <div class="logo">
+               <li><a href="home.html"><img src="EditEvent_images/Project4Logo.png" class="logo-img"></a></li>
+           </div>
+       </ul>
+    </div>
+    May 1, 2024 
+    <div class="container">
+        <h1>Event Details</h1>
+        <form id="event-form">
+            <div class="event-details">
+                <div class="form-group">
+                    <label for="event-title">Event Title:</label>
+                    <input type="text" id="event-title" name="event-title" value="River Clean Up">
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="text" id="date" name="date" value="May 1, 2024 ">
+                </div>
+                <div class="form-group">
+                    <label for="start-time">Start Time:</label>
+                    <input type="text" id="start-time" name="start-time" value="10:00 AM">
+                </div>
+                <div class="form-group">
+                    <label for="end-time">End Time:</label>
+                    <input type="text" id="end-time" name="end-time" value="12:00 PM">
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration:</label>
+                    <input type="text" id="duration" name="duration" value="2 Hours">
+                </div>
+                <div class="form-group">
+                    <label for="event-manager">Manager:</label>
+                    <input type="text" id="event-manager" name="event-manager" value="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="event-location">Location:</label>
+                    <input type="text" id="event-location" name="event-location" value="Guy West Bridge">
+                </div>
+                <div class="form-group">
+                    <label for="event-description">Description:</label>
+                    <textarea id="event-description" name="event-description">Description: Lorem  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Cras semper auctor  neque vitae tempus quam pellentesque nec nam. Dui sapien eget mi proin  sed libero. Pretium viverra suspendisse potenti</textarea>
+                </div>
+                <div class="button-group">
+                    <a href="View_Volunteers.html"><button type="button">View Volunteers</button></a>
+                </div>
+
+                <div class="button-group" style="margin-top: 10px;">
+                    <a href="AdminDashboard.html"><button type="button" class="delete-event">Delete Event</button></a>
+                </div>
+                
+
+                <div class="button-group" style="margin-top: 10px;">
+                    <a href="AdminDashboard.html"><button type="button">Save Changes</button></a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../ViewVolunteers_images/DashBackground.jpg');
+    background-position: center;
+    background-size: cover;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.return-button {
+    padding: 10px 20px;
+    background-color: rgb(4, 57, 39);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.return-button:hover {
+    background-color: rgb(4, 57, 39);
+}
+
+h1 {
+    text-align: center;
+}
+
+.user-list {
+    list-style: none;
+    padding: 0;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.actions {
+    display: flex;
+}
+
+.actions button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}

@@ -28,11 +28,6 @@ public class EventService { //TODO Revert, Implement lookup using simple FindAll
 
     }
 
-    public List<Event> getByUserName(String firstname, String lastname){ //TODO refactor, only query the Volunteer field.
-        return eventRepository.getMyEvents(firstname, lastname);
-
-    }
-
     public List<Event> getEventList(){
         return this.eventRepository.getAllEvents();
 

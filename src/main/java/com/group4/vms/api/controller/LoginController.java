@@ -48,7 +48,7 @@ public class LoginController {
             @RequestParam(value = "name") String name,
             @RequestParam(value = "pronouns") String pronouns) {
 
-        LoginState state = this.service.addVolunteer(name, email, password, pronouns);
+        LoginState state = this.service.addVolunteer(name, email);
         if(state.loggedIn()){
             return new ResponseEntity<>(state, HttpStatus.FOUND);
         }
@@ -64,7 +64,7 @@ public class LoginController {
             @RequestParam(value = "name") String name,
             @RequestParam(value = "pronouns") String pronouns) {
 
-        LoginState state = this.service.addEmployee(name, email, password, pronouns);
+        LoginState state = this.service.addEmployee(name, email);
         if(state.loggedIn()){
             return new ResponseEntity<>(state, HttpStatus.FOUND);
         }

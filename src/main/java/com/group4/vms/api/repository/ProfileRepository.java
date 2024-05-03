@@ -18,7 +18,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class ProfileRepository {
@@ -72,7 +74,12 @@ public class ProfileRepository {
     private double getAggregateTime(String name){
         Query query = new Query(Criteria.where("name").is(name));
         double aggregatetime = 0.0;
-        aggregatetime = Arrays.stream(this.mongoTemplate.find(query, Entry.class).get(0).getTimeVolunteered()).sum();
+        List<Double> times = Objects.requireNonNull(this.mongoTemplate.findOne(query, Entry.class)).getTimeVolunteered();
+        for (Double d:
+             times) {
+            aggregatetime = aggregatetime + d;
+        }
+
         return aggregatetime;
     }
 

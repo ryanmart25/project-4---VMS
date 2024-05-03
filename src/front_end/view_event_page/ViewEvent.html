@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="side-nav">
+        <!-- Sidebar content -->
+        <div class="user">
+           <img src="images/ProfilePic.png" class="user-img">
+           <div>
+               <h2>Dylan Prosser</h2>
+               <p>dprosser@csus.edu</p>
+           </div>
+       </div>
+       <ul>
+           <li><a href="AdminDashboard.html"><img src="images/DashBoard.png"></a><p>Dashboard</p></li>
+           <li><a href="messages.html"><img src="images/Mail.png"></a><p>Messages</p></li>
+           <li><a href="settings.html"><img src="images/settings.png"></a><p>Settings</p></li>
+       </ul>
+          
+       <ul>
+           <div class="logo">
+               <li><a href="home.html"><img src="images/Project4Logo.png" class="logo-img"></a></li>
+           </div>
+       </ul>
+    </div>
+
+    <div class="container">
+        <h1>Event Details</h1>
+        <div class="event-details">
+            <h2 id="event-title">Event Title</h2>
+            <p><strong>Start Time:</strong> <span id="start-time">May 1, 2024 10:00 AM</span></p>
+            <p><strong>End Time:</strong> <span id="end-time">May 1, 2024 12:00 PM</span></p>
+            <p><strong>Manager:</strong> <span id="event-manager">John Doe</span></p>
+            <p><strong>Location:</strong> <span id="event-location">Guy West Bridge</span></p>
+            <p><strong>Description:</strong> <span id="event-description">Description: Lorem  ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Cras semper auctor  neque vitae tempus quam pellentesque nec nam. Dui sapien eget mi proin  sed libero. Pretium viverra suspendisse potenti</span></p>
+        </div>
+        <button id="signup-button" class="signup-button" onclick="sendSignupRequest()">Sign Up</button>
+    </div>
+
+    <script>
+        function sendSignupRequest() {
+            var signupButton = document.getElementById('signup-button');
+            signupButton.innerText = "Sign Up Request Sent";
+            signupButton.disabled = true;
+        }
+    </script>
+</body>
+</html>
